@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="CRMGo SaaS - Projects, Accounting, Leads, Deals & HRM Tool">
     <meta name="author" content="Rajodiya Infotech">
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="icon" href="{{ asset(Storage::url('uploads/logo/favicon.png')) }}" type="image" sizes="16x16">
     <title>
         Finance

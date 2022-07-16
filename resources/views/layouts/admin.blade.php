@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="{{ $SITE_RTL == 'on'?'rtl':''}}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 @include('partials.admin.head')
 <body class="{{ $color }}">
 
