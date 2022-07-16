@@ -13,13 +13,13 @@
     class="dash-sidebar light-sidebar  {{ isset($setting['cust_theme_bg']) && $setting['cust_theme_bg'] == 'on' ? 'transprent-bg' : '' }}">
     <div class="navbar-wrapper">
         <div class="m-header main-logo">
-            <a href="index.html" class="b-brand">
+            <a href="{{ route('expense.index') }}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
-                <img src="{{ asset(Storage::url('uploads/logo/' . $logo)) }}" alt="{{ env('APP_NAME') }}"
-                    class="logo logo-lg" />
-                <img src="{{ asset(Storage::url('uploads/logo/' . $logo)) }}" alt="{{ env('APP_NAME') }}"
-                    class="logo logo-sm" />
-
+{{--                <img src="{{ asset(Storage::url('uploads/logo/' . $logo)) }}" alt="{{ env('APP_NAME') }}"--}}
+{{--                    class="logo logo-lg" />--}}
+{{--                <img src="{{ asset(Storage::url('uploads/logo/' . $logo)) }}" alt="{{ env('APP_NAME') }}"--}}
+{{--                    class="logo logo-sm" />--}}
+            Finance
 
             </a>
         </div>

@@ -20,8 +20,8 @@ class Utility extends Model
             $data = $data->where('created_by','=',\Auth::user()->creatorId())->get();
             if(count($data)==0){
                 $data =DB::table('settings')->where('created_by', '=', 1 )->get();
-            } 
-           
+            }
+
         }
         else
         {
@@ -74,7 +74,7 @@ class Utility extends Model
             "footer_value_3" => "#",
             "display_landing_page" => "on",
             "title_text" => "",
-            "footer_text" => "Copyright CRMGo 2022",
+            "footer_text" => "Copyright 2022",
             "journal_prefix" => "#JUR",
             "gdpr_cookie" => "",
             "cookie_text" => "",
@@ -863,7 +863,7 @@ class Utility extends Model
         if($color == "" || $color == null){
             $color = 'blue';
         }
-        return $color; 
+        return $color;
     }
     public static function getAllThemeColors(){
         $colors = [
@@ -1215,11 +1215,11 @@ class Utility extends Model
 
         return $settings;
     }
-    
+
     public static function invoice_payment_settings($id)
         {
             $data = [];
-    
+
             $user = User::where(['id' => $id])->first();
             if(!is_null($user)){
                 $data = DB::table('company_payment_settings');
@@ -1227,13 +1227,13 @@ class Utility extends Model
                 $data = $data->get();
                 //dd($data);
             }
-    
+
             $res = [];
-    
+
             foreach ($data as $key => $value) {
                 $res[$value->name] = $value->value;
             }
-    
+
             return $res;
         }
 
@@ -1247,7 +1247,7 @@ class Utility extends Model
             {
                 $settings[$row->name] = $row->value;
             }
-    
+
             return $settings;
         }
 
@@ -1256,9 +1256,9 @@ class Utility extends Model
             $H = floor($seconds / 3600);
             $i = ($seconds / 60) % 60;
             $s = $seconds % 60;
-    
+
             $time = sprintf("%02d:%02d:%02d", $H, $i, $s);
-    
+
             return $time;
         }
 
@@ -1278,28 +1278,28 @@ class Utility extends Model
             if(isset($settings['slack_webhook']) && !empty($settings['slack_webhook'])){
 
                     $ch = curl_init();
-            
+
                     curl_setopt($ch, CURLOPT_URL, $settings['slack_webhook']);
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                     curl_setopt($ch, CURLOPT_POST, 1);
                     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['text' => $msg]));
-                
+
                     $headers = array();
                     $headers[] = 'Content-Type: application/json';
                     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                
+
                     $result = curl_exec($ch);
                     if (curl_errno($ch)) {
                         echo 'Error:' . curl_error($ch);
                     }
                     curl_close($ch);
-                    
+
                 }
             }
             catch(\Exception $e){
-    
+
             }
-        
+
             }
 
          public static function send_telegram_msg($resp) {
@@ -1311,7 +1311,7 @@ class Utility extends Model
             // Set your Bot ID and Chat ID.
             $telegrambot    = $settings['telegrambot'];
             $telegramchatid = $settings['telegramchatid'];
-             
+
             // Function call with your own text or variable
             $url     = 'https://api.telegram.org/bot' . $telegrambot . '/sendMessage';
             $data    = array(
@@ -1355,7 +1355,7 @@ class Utility extends Model
     public static function total_quantity($type, $quantity, $id)
     {
         $product = Item::find($id);
- 
+
         $pro_quantity = $product->quantity;
 
         if($type == 'minus')
@@ -1381,7 +1381,7 @@ class Utility extends Model
         $stocks->type_id = $type_id;
         $stocks->description = $description;
         $stocks->created_by =\Auth::user()->creatorId();
-       
+
         $stocks->save();
     }
 
@@ -1407,7 +1407,7 @@ class Utility extends Model
         return $setting;
 
         $is_dark_mode = $setting['cust_darklayout'];
-       
+
         if($is_dark_mode == 'on'){
             return 'logo-light.png';
         }else{
@@ -1420,7 +1420,7 @@ class Utility extends Model
         $is_dark_mode = DB::table('settings')->where('created_by', '1')->pluck('value','name')->toArray();
         if(!empty($is_dark_mode['cust_darklayout'])){
             $is_dark_modes = $is_dark_mode['cust_darklayout'];
-       
+
             if($is_dark_modes == 'on'){
                 return 'logo-light.png';
             }else{
@@ -1449,7 +1449,7 @@ class Utility extends Model
 
         return $settings;
     }
-    
 
-    
+
+
 }

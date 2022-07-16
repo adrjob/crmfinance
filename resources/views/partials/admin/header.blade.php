@@ -22,8 +22,8 @@ $unseenCounter = App\Models\ChMessage::where('to_id', Auth::user()->id)
     <div class="header-wrapper">
         <div class="me-auto dash-mob-drp">
             <ul class="list-unstyled">
-               
-                
+
+
                 <li class="dropdown dash-h-item drp-company">
                     <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
@@ -55,42 +55,42 @@ $unseenCounter = App\Models\ChMessage::where('to_id', Auth::user()->id)
         </div>
         <div class="ms-auto">
             <ul class="list-unstyled">
-                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')
-                    <li class="dash-h-item {{ !empty($userTask) ? 'mt-3' : '' }}">
-                        @if (empty($userTask))
-                            <a class="dash-head-link me-0" href="{{ route('project.all.task.kanban') }}">
-                                <i class="ti ti-subtask"></i>
-                                <span class="sr-only"></span>
-                            </a>
-                        @else
-                            <a class="dash-head-link me-0" href="{{ route('project.all.task.kanban') }}">
-                                <i class="ti ti-subtask"></i>
-                                <span class="sr-only"></span>
-                            </a>
-                        @endif
+{{--                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')--}}
+{{--                    <li class="dash-h-item {{ !empty($userTask) ? 'mt-3' : '' }}">--}}
+{{--                        @if (empty($userTask))--}}
+{{--                            <a class="dash-head-link me-0" href="{{ route('project.all.task.kanban') }}">--}}
+{{--                                <i class="ti ti-subtask"></i>--}}
+{{--                                <span class="sr-only"></span>--}}
+{{--                            </a>--}}
+{{--                        @else--}}
+{{--                            <a class="dash-head-link me-0" href="{{ route('project.all.task.kanban') }}">--}}
+{{--                                <i class="ti ti-subtask"></i>--}}
+{{--                                <span class="sr-only"></span>--}}
+{{--                            </a>--}}
+{{--                        @endif--}}
 
-                        <div class="col-auto">
-                            <div class="timer-counter"></div>
-                        </div>
-                        <div class="col-auto">
-                            <p class="start-task"></p>
-                        </div>
+{{--                        <div class="col-auto">--}}
+{{--                            <div class="timer-counter"></div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-auto">--}}
+{{--                            <p class="start-task"></p>--}}
+{{--                        </div>--}}
 
-                    </li>
-                @endif
+{{--                    </li>--}}
+{{--                @endif--}}
 
 
-                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')
-                    <li class="dropdown dash-h-item drp-notification">
-                        <a class="dash-head-link arrow-none me-0" href="{{ url('chats') }}" aria-haspopup="false"
-                            aria-expanded="false">
-                            <i class="ti ti-brand-hipchat"></i>
-                            <span class="bg-danger dash-h-badge message-toggle-msg message-counter custom_messanger_counter beep"> {{ $unseenCounter }}<span
-                                    class="sr-only"></span></span>
-                        </a>
+{{--                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')--}}
+{{--                    <li class="dropdown dash-h-item drp-notification">--}}
+{{--                        <a class="dash-head-link arrow-none me-0" href="{{ url('chats') }}" aria-haspopup="false"--}}
+{{--                            aria-expanded="false">--}}
+{{--                            <i class="ti ti-brand-hipchat"></i>--}}
+{{--                            <span class="bg-danger dash-h-badge message-toggle-msg message-counter custom_messanger_counter beep"> {{ $unseenCounter }}<span--}}
+{{--                                    class="sr-only"></span></span>--}}
+{{--                        </a>--}}
 
-                    </li>
-                @endif
+{{--                    </li>--}}
+{{--                @endif--}}
                 <li class="dropdown dash-h-item drp-language">
                     <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
@@ -114,7 +114,7 @@ $unseenCounter = App\Models\ChMessage::where('to_id', Auth::user()->id)
                         @endif
 
                     </div>
-                    
+
                 </li>
             </ul>
         </div>

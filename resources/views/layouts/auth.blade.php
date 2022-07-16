@@ -22,7 +22,7 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="icon" href="{{ asset(Storage::url('uploads/logo/favicon.png')) }}" type="image" sizes="16x16">
     <title>
-        {{ Utility::getValByName('header_text') ? Utility::getValByName('header_text') : config('app.name', 'CRMGo') }}
+        Finance
     </title>
     <link rel="icon"
         href="{{ $logos . '/' . (isset($company_favicon) && !empty($company_favicon) ? $company_favicon : 'favicon.png') }}"
@@ -69,7 +69,8 @@
             <nav class="navbar navbar-expand-md navbar-light default">
                 <div class="container-fluid pe-2">
                     <a class="navbar-brand" href="#">
-                        <img src="{{ asset(Storage::url('uploads/logo/' . $logo)) }}" class="auth-logo">
+                        Finance
+{{--                        <img src="{{ asset(Storage::url('uploads/logo/' . $logo)) }}" class="auth-logo">--}}
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
@@ -78,18 +79,18 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <ul class="navbar-nav align-items-center ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active"
-                                    href="{{ !empty(Utility::getValByName('footer_value_1')) ? Utility::getValByName('footer_value_1') : Utility::getValByName('footer_value_1') }}">{{ !empty(Utility::getValByName('footer_link_1')) ? Utility::getValByName('footer_link_1') : Utility::getValByName('footer_link_1') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ !empty(Utility::getValByName('footer_value_2')) ? Utility::getValByName('footer_value_2') : Utility::getValByName('footer_value_2') }}">{{ !empty(Utility::getValByName('footer_link_2')) ? Utility::getValByName('footer_link_2') : Utility::getValByName('footer_link_2') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ !empty(Utility::getValByName('footer_value_3')) ? Utility::getValByName('footer_value_3') : Utility::getValByName('footer_value_3') }}">{{ !empty(Utility::getValByName('footer_link_3')) ? Utility::getValByName('footer_link_3') : Utility::getValByName('footer_link_3') }}</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link active"--}}
+{{--                                    href="{{ !empty(Utility::getValByName('footer_value_1')) ? Utility::getValByName('footer_value_1') : Utility::getValByName('footer_value_1') }}">{{ !empty(Utility::getValByName('footer_link_1')) ? Utility::getValByName('footer_link_1') : Utility::getValByName('footer_link_1') }}</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link"--}}
+{{--                                    href="{{ !empty(Utility::getValByName('footer_value_2')) ? Utility::getValByName('footer_value_2') : Utility::getValByName('footer_value_2') }}">{{ !empty(Utility::getValByName('footer_link_2')) ? Utility::getValByName('footer_link_2') : Utility::getValByName('footer_link_2') }}</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link"--}}
+{{--                                    href="{{ !empty(Utility::getValByName('footer_value_3')) ? Utility::getValByName('footer_value_3') : Utility::getValByName('footer_value_3') }}">{{ !empty(Utility::getValByName('footer_link_3')) ? Utility::getValByName('footer_link_3') : Utility::getValByName('footer_link_3') }}</a>--}}
+{{--                            </li>--}}
                             <li class="nav-item ">
                                 <select name="language" id="language" class=" btn btn-primary my-1 me-2 lang-dropdown option"
                                     onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">

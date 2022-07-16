@@ -1,7 +1,8 @@
 @extends('layouts.auth')
 
 @php
-	$footer_text=isset(\App\Models\Utility::settings()['footer_text']) ? \App\Models\Utility::settings()['footer_text'] : '';
+
+        $footer_text="Copyright 2022";
 @endphp
 
 @push('custom-scripts')
@@ -52,7 +53,7 @@
 								@enderror
 
 							</div>
-							
+
 
 							@if(env('RECAPTCHA_MODULE') == 'yes')
 							<div class="form-group col-lg-12 col-md-12 mt-3">
@@ -74,16 +75,16 @@
 							</p>
 							@endif
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="col-xl-6 img-card-side">
-					<div class="auth-img-content">
-						<img src="{{ asset('assets/images/auth/img-auth-3.svg') }}" alt="" class="img-fluid">
-						<h3 class="text-white mb-4 mt-5"> {{ __('“Attention is the new currency”') }}</h3>
-						<p class="text-white"> {{__('The more effortless the writing looks, the more effort the writer
-							actually put into the process.')}}</p>
-					</div>
+{{--					<div class="auth-img-content">--}}
+{{--						<img src="{{ asset('assets/images/auth/img-auth-3.svg') }}" alt="" class="img-fluid">--}}
+{{--						<h3 class="text-white mb-4 mt-5"> {{ __('“Attention is the new currency”') }}</h3>--}}
+{{--						<p class="text-white"> {{__('The more effortless the writing looks, the more effort the writer--}}
+{{--							actually put into the process.')}}</p>--}}
+{{--					</div>--}}
 				</div>
 			</div>
 		</div>
@@ -96,7 +97,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 <!-- [ auth-signup ] end -->
 
 @endsection
