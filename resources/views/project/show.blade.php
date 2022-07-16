@@ -496,7 +496,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
 {{--                            <a href="#useradd-2"--}}
 {{--                                class="list-group-item list-group-item-action border-0">{{ __('Task List') }} <div--}}
 {{--                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
-{{--                            <a href="#useradd-3"--}}
+                            <a href="#useradd-3"
                                 class="list-group-item list-group-item-action border-0">{{ __('Task Kanban') }} <div
                                     class="float-end"><i class="ti ti-chevron-right"></i></div></a>
 {{--                            <a href="#useradd-4"--}}
@@ -505,7 +505,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
 {{--                            <a href="#useradd-5"--}}
 {{--                                class="list-group-item list-group-item-action border-0">{{ __('Milestone') }} <div--}}
 {{--                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
-{{--                            <a href="#useradd-6"--}}
+                            <a href="#useradd-6"
                                 class="list-group-item list-group-item-action border-0">{{ __('Notes') }} <div
                                     class="float-end"><i class="ti ti-chevron-right"></i></div></a>
                             <a href="#useradd-7"
@@ -753,125 +753,125 @@ $profile = asset(Storage::url('uploads/avatar/'));
                         </div>
                     </div>
 
-                    <!--Task List-->
-                    <div id="useradd-2">
+{{--                    <!--Task List-->--}}
+{{--                    <div id="useradd-2">--}}
 
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="float-end">
-                                        @if (\Auth::user()->type == 'company')
-                                            <p class="text-muted d-none d-sm-flex align-items-center mb-0">
-                                                <a href="#" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="modal"
-                                                    data-size="lg" data-bs-target="#exampleModal"
-                                                    data-url="{{ route('project.task.create', $project->id) }}"
-                                                    data-bs-whatever="{{ __('Create New Task') }}"> <span
-                                                        class="text-white">
-                                                        <i class="ti ti-plus text-white" data-bs-toggle="tooltip"
-                                                            data-bs-original-title="{{ __('Create') }}"></i></span>
-                                                </a>
-                                            </p>
-                                        @endif
-                                    </div>
-                                    <h5 class="mb-0">{{ __('Task List') }}</h5>
-                                </div>
+{{--                            <div class="card">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <div class="float-end">--}}
+{{--                                        @if (\Auth::user()->type == 'company')--}}
+{{--                                            <p class="text-muted d-none d-sm-flex align-items-center mb-0">--}}
+{{--                                                <a href="#" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="modal"--}}
+{{--                                                    data-size="lg" data-bs-target="#exampleModal"--}}
+{{--                                                    data-url="{{ route('project.task.create', $project->id) }}"--}}
+{{--                                                    data-bs-whatever="{{ __('Create New Task') }}"> <span--}}
+{{--                                                        class="text-white">--}}
+{{--                                                        <i class="ti ti-plus text-white" data-bs-toggle="tooltip"--}}
+{{--                                                            data-bs-original-title="{{ __('Create') }}"></i></span>--}}
+{{--                                                </a>--}}
+{{--                                            </p>--}}
+{{--                                        @endif--}}
+{{--                                    </div>--}}
+{{--                                    <h5 class="mb-0">{{ __('Task List') }}</h5>--}}
+{{--                                </div>--}}
 
-                                <div class="scrollbar-inner">
-                                    <div class="card-body project-detail-common-box">
-                                        @php
-                                            $json = [];
-                                            foreach ($stages as $stage){
-                                                $json[] = 'task-list-'.$stage->id;
-                                            }
-                                        @endphp
-                                        @foreach($stages as $stage)
-                                            @php $tasks =$stage->tasks($project->id) @endphp
-                                            <h4 class="mb-0">{{$stage->name}}</h4>
-                                            <div class="mb-4" id="card-list-1">
-                                                @foreach($tasks as $task)
-                                                    <div class="card card-progress border shadow-none draggable-item">
-                                                        @if($task->priority =='low')
+{{--                                <div class="scrollbar-inner">--}}
+{{--                                    <div class="card-body project-detail-common-box">--}}
+{{--                                        @php--}}
+{{--                                            $json = [];--}}
+{{--                                            foreach ($stages as $stage){--}}
+{{--                                                $json[] = 'task-list-'.$stage->id;--}}
+{{--                                            }--}}
+{{--                                        @endphp--}}
+{{--                                        @foreach($stages as $stage)--}}
+{{--                                            @php $tasks =$stage->tasks($project->id) @endphp--}}
+{{--                                            <h4 class="mb-0">{{$stage->name}}</h4>--}}
+{{--                                            <div class="mb-4" id="card-list-1">--}}
+{{--                                                @foreach($tasks as $task)--}}
+{{--                                                    <div class="card card-progress border shadow-none draggable-item">--}}
+{{--                                                        @if($task->priority =='low')--}}
 
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
-                                                            </div>
-                                                        @elseif($task->priority =='medium')
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80"></div>
-                                                            </div>
-                                                        @elseif($task->priority =='high')
-                                                            <div class="progress">
-                                                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        @endif
+{{--                                                            <div class="progress">--}}
+{{--                                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>--}}
+{{--                                                            </div>--}}
+{{--                                                        @elseif($task->priority =='medium')--}}
+{{--                                                            <div class="progress">--}}
+{{--                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="80"></div>--}}
+{{--                                                            </div>--}}
+{{--                                                        @elseif($task->priority =='high')--}}
+{{--                                                            <div class="progress">--}}
+{{--                                                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>--}}
+{{--                                                            </div>--}}
+{{--                                                        @endif--}}
 
 
-                                                        <div class="card-body row align-items-center">
-                                                            <div class="user-group1">
-                                                               <span class="avatar avatar-sm rounded-circle mr-2">
-                                                                   <img alt="image" data-toggle="tooltip" data-original-title="{{!empty($task->taskUser)?$task->taskUser->name:''}}" @if($task->taskUser && !empty($task->taskUser->avatar)) src="{{$profile.'/'.$task->taskUser->avatar}}" @else avatar="{{!empty($task->taskUser)?$task->taskUser->name:''}}" @endif class="">
-                                                               </span>
-                                                                <a href="#" data-size="lg" data-url="{{ route('project.task.show',$task->id) }}" data-ajax-popup="true" data-title="{{__('Task Detail')}}" class="h6 ms-3" data-toggle="tooltip">
-                                                                    {{$task->title}}
-                                                                </a>
-                                                                <br>
-                                                                <span>
-                                                                    @if($task->priority =='low')
-                                                                        <div class="badge bg-success p-2 px-3 rounded"> {{ $task->priority }}</div>
-                                                                    @elseif($task->priority =='medium')
-                                                                        <div class="badge bg-warning p-2 px-3 rounded"> {{ $task->priority }}</div>
-                                                                    @elseif($task->priority =='high')
-                                                                        <div class="badge bg-danger p-2 px-3 rounded"> {{ $task->priority }}</div>
-                                                                    @endif
-                                                                </span>
-                                                                <div class="actions d-inline-block text-end float-sm-none">
-                                                                    <div class="action-item ml-4 ms-5 pt-3">
-                                                                        <i class="ti ti-calendar-event"></i> {{\Auth::user()->dateFormat($task->start_date)}}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="actions d-inline-block text-end float-sm-none">
-                                                                    <div class="action-item ml-4 ms-5 pt-3">
-                                                                        <i class="ti ti-calendar-event"></i> {{\Auth::user()->dateFormat($task->due_date)}}
-                                                                    </div>
-                                                                </div>
-                                                                <span class="col-auto" style="margin-left: 500px">
-                                                                @if(\Auth::user()->type=='company')
-                                                                <div class="action-btn bg-info ms-2">
-                                                                    <a href="#" class="mx-3 btn btn-sm d-inline-flex align-items-center" data-size="lg"
-                                                                    data-bs-whatever="{{__('Edit Task')}}" data-url="{{ route('project.task.edit',$task->id) }}" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                                                    > <span class="text-white"> <i
-                                                                            class="ti ti-edit"  data-bs-toggle="tooltip" data-bs-original-title="{{__('Edit')}}"></i></span></a>
-                                                                </div>
-                                                                @endif
-                                                                <div class="action-btn bg-warning ms-2">
-                                                                    <a href="#" class="mx-3 btn btn-sm d-inline-flex align-items-center" data-bs-target="#exampleModal" data-bs-toggle="modal" data-url="{{ route('project.task.show',$task->id) }}"
-                                                                    data-bs-whatever="{{__('View Task')}}" data-size="lg"
-                                                                    > <span class="text-white"> <i
-                                                                            class="ti ti-eye" data-bs-toggle="tooltip" data-bs-original-title="{{__('View')}}"></i></span></a>
-                                                                </div>
+{{--                                                        <div class="card-body row align-items-center">--}}
+{{--                                                            <div class="user-group1">--}}
+{{--                                                               <span class="avatar avatar-sm rounded-circle mr-2">--}}
+{{--                                                                   <img alt="image" data-toggle="tooltip" data-original-title="{{!empty($task->taskUser)?$task->taskUser->name:''}}" @if($task->taskUser && !empty($task->taskUser->avatar)) src="{{$profile.'/'.$task->taskUser->avatar}}" @else avatar="{{!empty($task->taskUser)?$task->taskUser->name:''}}" @endif class="">--}}
+{{--                                                               </span>--}}
+{{--                                                                <a href="#" data-size="lg" data-url="{{ route('project.task.show',$task->id) }}" data-ajax-popup="true" data-title="{{__('Task Detail')}}" class="h6 ms-3" data-toggle="tooltip">--}}
+{{--                                                                    {{$task->title}}--}}
+{{--                                                                </a>--}}
+{{--                                                                <br>--}}
+{{--                                                                <span>--}}
+{{--                                                                    @if($task->priority =='low')--}}
+{{--                                                                        <div class="badge bg-success p-2 px-3 rounded"> {{ $task->priority }}</div>--}}
+{{--                                                                    @elseif($task->priority =='medium')--}}
+{{--                                                                        <div class="badge bg-warning p-2 px-3 rounded"> {{ $task->priority }}</div>--}}
+{{--                                                                    @elseif($task->priority =='high')--}}
+{{--                                                                        <div class="badge bg-danger p-2 px-3 rounded"> {{ $task->priority }}</div>--}}
+{{--                                                                    @endif--}}
+{{--                                                                </span>--}}
+{{--                                                                <div class="actions d-inline-block text-end float-sm-none">--}}
+{{--                                                                    <div class="action-item ml-4 ms-5 pt-3">--}}
+{{--                                                                        <i class="ti ti-calendar-event"></i> {{\Auth::user()->dateFormat($task->start_date)}}--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                                <div class="actions d-inline-block text-end float-sm-none">--}}
+{{--                                                                    <div class="action-item ml-4 ms-5 pt-3">--}}
+{{--                                                                        <i class="ti ti-calendar-event"></i> {{\Auth::user()->dateFormat($task->due_date)}}--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                                <span class="col-auto" style="margin-left: 500px">--}}
+{{--                                                                @if(\Auth::user()->type=='company')--}}
+{{--                                                                <div class="action-btn bg-info ms-2">--}}
+{{--                                                                    <a href="#" class="mx-3 btn btn-sm d-inline-flex align-items-center" data-size="lg"--}}
+{{--                                                                    data-bs-whatever="{{__('Edit Task')}}" data-url="{{ route('project.task.edit',$task->id) }}" data-bs-target="#exampleModal" data-bs-toggle="modal"--}}
+{{--                                                                    > <span class="text-white"> <i--}}
+{{--                                                                            class="ti ti-edit"  data-bs-toggle="tooltip" data-bs-original-title="{{__('Edit')}}"></i></span></a>--}}
+{{--                                                                </div>--}}
+{{--                                                                @endif--}}
+{{--                                                                <div class="action-btn bg-warning ms-2">--}}
+{{--                                                                    <a href="#" class="mx-3 btn btn-sm d-inline-flex align-items-center" data-bs-target="#exampleModal" data-bs-toggle="modal" data-url="{{ route('project.task.show',$task->id) }}"--}}
+{{--                                                                    data-bs-whatever="{{__('View Task')}}" data-size="lg"--}}
+{{--                                                                    > <span class="text-white"> <i--}}
+{{--                                                                            class="ti ti-eye" data-bs-toggle="tooltip" data-bs-original-title="{{__('View')}}"></i></span></a>--}}
+{{--                                                                </div>--}}
 
-                                                                @if(\Auth::user()->type=='company')
-                                                                <div class="action-btn bg-danger ms-2">
-                                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['project.task.destroy', $task->id]]) !!}
-                                                                    <a href="#!" class="mx-3 btn btn-sm d-inline-flex align-items-center show_confirm m-2">
-                                                                        <i class="ti ti-trash text-white" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Delete') }}"></i>
-                                                                    </a>
-                                                                    {!! Form::close() !!}
-                                                                </div>
-                                                                @endif
-                                                            </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                                <span class="empty-container" data-placeholder="Empty"></span>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
+{{--                                                                @if(\Auth::user()->type=='company')--}}
+{{--                                                                <div class="action-btn bg-danger ms-2">--}}
+{{--                                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['project.task.destroy', $task->id]]) !!}--}}
+{{--                                                                    <a href="#!" class="mx-3 btn btn-sm d-inline-flex align-items-center show_confirm m-2">--}}
+{{--                                                                        <i class="ti ti-trash text-white" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Delete') }}"></i>--}}
+{{--                                                                    </a>--}}
+{{--                                                                    {!! Form::close() !!}--}}
+{{--                                                                </div>--}}
+{{--                                                                @endif--}}
+{{--                                                            </span>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                @endforeach--}}
+{{--                                                <span class="empty-container" data-placeholder="Empty"></span>--}}
+{{--                                            </div>--}}
+{{--                                        @endforeach--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
-                            </div>
+{{--                            </div>--}}
 
-                    </div>
+{{--                    </div>--}}
 
                     <!--Task Kanban-->
                     <div id="useradd-3">
@@ -1056,131 +1056,131 @@ $profile = asset(Storage::url('uploads/avatar/'));
                         </div>
                     </div>
 
-                    <!--Gantt Chart-->
-                    <div id="useradd-4">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card overflow-hidden ">
-                                    <div class="card-header">
-                                        <div class="float-end">
-                                            <a href="#"
-                                                class="btn btn-sm btn-info gantt-chart-mode  @if ($duration == 'Quarter Day') active @endif"
-                                                data-value="Quarter Day">{{ __('Quarter Day') }}</a>
-                                            <a href="#"
-                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Half Day') active @endif"
-                                                data-value="Half Day">{{ __('Half Day') }}</a>
-                                            <a href="#"
-                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Day') active @endif"
-                                                data-value="Day">{{ __('Day') }}</a>
-                                            <a href="#"
-                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Week') active @endif"
-                                                data-value="Week">{{ __('Week') }}</a>
-                                            <a href="#"
-                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Month') active @endif"
-                                                data-value="Month">{{ __('Month') }}</a>
-                                        </div>
-                                        <h5 class="mb-0">{{ __('Gantt Chart') }}</h5>
-                                    </div>
+{{--                    <!--Gantt Chart-->--}}
+{{--                    <div id="useradd-4">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-12">--}}
+{{--                                <div class="card overflow-hidden ">--}}
+{{--                                    <div class="card-header">--}}
+{{--                                        <div class="float-end">--}}
+{{--                                            <a href="#"--}}
+{{--                                                class="btn btn-sm btn-info gantt-chart-mode  @if ($duration == 'Quarter Day') active @endif"--}}
+{{--                                                data-value="Quarter Day">{{ __('Quarter Day') }}</a>--}}
+{{--                                            <a href="#"--}}
+{{--                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Half Day') active @endif"--}}
+{{--                                                data-value="Half Day">{{ __('Half Day') }}</a>--}}
+{{--                                            <a href="#"--}}
+{{--                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Day') active @endif"--}}
+{{--                                                data-value="Day">{{ __('Day') }}</a>--}}
+{{--                                            <a href="#"--}}
+{{--                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Week') active @endif"--}}
+{{--                                                data-value="Week">{{ __('Week') }}</a>--}}
+{{--                                            <a href="#"--}}
+{{--                                                class="btn btn-sm btn-info gantt-chart-mode @if ($duration == 'Month') active @endif"--}}
+{{--                                                data-value="Month">{{ __('Month') }}</a>--}}
+{{--                                        </div>--}}
+{{--                                        <h5 class="mb-0">{{ __('Gantt Chart') }}</h5>--}}
+{{--                                    </div>--}}
 
-                                    <div class="card-body">
-                                        <svg id="gantt"></svg>
-                                    </div>
+{{--                                    <div class="card-body">--}}
+{{--                                        <svg id="gantt"></svg>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!--Milestone-->
-                    <div id="useradd-5">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="float-end">
-                                    @if (\Auth::user()->type == 'company')
-                                        <p class="text-muted d-none d-sm-flex align-items-center mb-0">
-                                            <a href="#" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                data-url="{{ route('project.milestone.create', $project->id) }}"
-                                                data-bs-whatever="{{ __('Create New Milestone') }}"> <span
-                                                    class="text-white">
-                                                    <i class="ti ti-plus text-white" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="{{ __('Create') }}"></i></span>
-                                            </a>
-                                        </p>
-                                    @endif
-                                </div>
-                                <h5 class="mb-0">{{ __('Milestone') }}</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table" id="pc-dt-simple">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">{{ __('Title') }}</th>
-                                                <th scope="col">{{ __('Description') }}</th>
-                                                <th scope="col">{{ __('Due Date') }}</th>
-                                                <th scope="col">{{ __('Cost') }}</th>
-                                                <th scope="col">{{ __('Status') }}</th>
-                                                @if (\Auth::user()->type == 'company')
-                                                    <th scope="col" class="text-right">{{ __('Action') }}</th>
-                                                @endif
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($milestones as $milestone)
-                                                <tr>
-                                                    <th scope="row">
-                                                        <div class="media align-items-center">
-                                                            <div class="media-body">
-                                                                <a href="#"
-                                                                    class="name h6 mb-0 text-sm">{{ $milestone->title }}</a><br>
-
-                                                            </div>
-                                                        </div>
-                                                    </th>
-                                                    <td>{{ $milestone->description }}</td>
-                                                    <td>{{ \Auth::user()->dateFormat($milestone->due_date) }}</td>
-                                                    <td>{{ \Auth::user()->priceFormat($milestone->cost) }}</td>
-                                                    <td><span
-                                                            class="badge fix_badges bg-info p-2 px-3 rounded">{{ $milestone->status }}</span>
-                                                    </td>
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
-                                                    @if (\Auth::user()->type == 'company')
-                                                    <td class="text-right">
-                                                        <div class="action-btn bg-info ms-2">
-                                                            <a href="#"
-                                                                class="mx-3 btn btn-sm d-inline-flex align-items-center"
-                                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                                data-url="{{ route('project.milestone.edit', $milestone->id) }}"
-                                                                data-bs-whatever="{{ __('Edit Milestone') }}"> <span
-                                                                    class="text-white"> <i class="ti ti-edit"
-                                                                        data-bs-toggle="tooltip"
-                                                                        data-bs-original-title="{{ __('Edit') }}"></i></span></a>
-                                                        </div>
+{{--                    <!--Milestone-->--}}
+{{--                    <div id="useradd-5">--}}
+{{--                        <div class="card">--}}
+{{--                            <div class="card-header">--}}
+{{--                                <div class="float-end">--}}
+{{--                                    @if (\Auth::user()->type == 'company')--}}
+{{--                                        <p class="text-muted d-none d-sm-flex align-items-center mb-0">--}}
+{{--                                            <a href="#" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="modal"--}}
+{{--                                                data-bs-target="#exampleModal"--}}
+{{--                                                data-url="{{ route('project.milestone.create', $project->id) }}"--}}
+{{--                                                data-bs-whatever="{{ __('Create New Milestone') }}"> <span--}}
+{{--                                                    class="text-white">--}}
+{{--                                                    <i class="ti ti-plus text-white" data-bs-toggle="tooltip"--}}
+{{--                                                        data-bs-original-title="{{ __('Create') }}"></i></span>--}}
+{{--                                            </a>--}}
+{{--                                        </p>--}}
+{{--                                    @endif--}}
+{{--                                </div>--}}
+{{--                                <h5 class="mb-0">{{ __('Milestone') }}</h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-body">--}}
+{{--                                <div class="table-responsive">--}}
+{{--                                    <table class="table" id="pc-dt-simple">--}}
+{{--                                        <thead>--}}
+{{--                                            <tr>--}}
+{{--                                                <th scope="col">{{ __('Title') }}</th>--}}
+{{--                                                <th scope="col">{{ __('Description') }}</th>--}}
+{{--                                                <th scope="col">{{ __('Due Date') }}</th>--}}
+{{--                                                <th scope="col">{{ __('Cost') }}</th>--}}
+{{--                                                <th scope="col">{{ __('Status') }}</th>--}}
+{{--                                                @if (\Auth::user()->type == 'company')--}}
+{{--                                                    <th scope="col" class="text-right">{{ __('Action') }}</th>--}}
+{{--                                                @endif--}}
+{{--                                            </tr>--}}
+{{--                                        </thead>--}}
+{{--                                        <tbody>--}}
+{{--                                            @foreach ($milestones as $milestone)--}}
+{{--                                                <tr>--}}
+{{--                                                    <th scope="row">--}}
+{{--                                                        <div class="media align-items-center">--}}
+{{--                                                            <div class="media-body">--}}
+{{--                                                                <a href="#"--}}
+{{--                                                                    class="name h6 mb-0 text-sm">{{ $milestone->title }}</a><br>--}}
 
-                                                        <div class="action-btn bg-danger ms-2">
-                                                            {!! Form::open(['method' => 'DELETE', 'route' => ['project.milestone.destroy', $milestone->id]]) !!}
-                                                            <a href="#!"
-                                                                class="mx-3 btn btn-sm d-flex align-items-center show_confirm">
-                                                                <i class="ti ti-trash text-white" data-bs-toggle="tooltip"
-                                                                    data-bs-original-title="{{ __('Delete') }}"></i>
-                                                            </a>
-                                                            {!! Form::close() !!}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </th>--}}
+{{--                                                    <td>{{ $milestone->description }}</td>--}}
+{{--                                                    <td>{{ \Auth::user()->dateFormat($milestone->due_date) }}</td>--}}
+{{--                                                    <td>{{ \Auth::user()->priceFormat($milestone->cost) }}</td>--}}
+{{--                                                    <td><span--}}
+{{--                                                            class="badge fix_badges bg-info p-2 px-3 rounded">{{ $milestone->status }}</span>--}}
+{{--                                                    </td>--}}
 
 
-                                                        </div>
-                                                    </td>
-                                                    @endif
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{{--                                                    @if (\Auth::user()->type == 'company')--}}
+{{--                                                    <td class="text-right">--}}
+{{--                                                        <div class="action-btn bg-info ms-2">--}}
+{{--                                                            <a href="#"--}}
+{{--                                                                class="mx-3 btn btn-sm d-inline-flex align-items-center"--}}
+{{--                                                                data-bs-toggle="modal" data-bs-target="#exampleModal"--}}
+{{--                                                                data-url="{{ route('project.milestone.edit', $milestone->id) }}"--}}
+{{--                                                                data-bs-whatever="{{ __('Edit Milestone') }}"> <span--}}
+{{--                                                                    class="text-white"> <i class="ti ti-edit"--}}
+{{--                                                                        data-bs-toggle="tooltip"--}}
+{{--                                                                        data-bs-original-title="{{ __('Edit') }}"></i></span></a>--}}
+{{--                                                        </div>--}}
+
+{{--                                                        <div class="action-btn bg-danger ms-2">--}}
+{{--                                                            {!! Form::open(['method' => 'DELETE', 'route' => ['project.milestone.destroy', $milestone->id]]) !!}--}}
+{{--                                                            <a href="#!"--}}
+{{--                                                                class="mx-3 btn btn-sm d-flex align-items-center show_confirm">--}}
+{{--                                                                <i class="ti ti-trash text-white" data-bs-toggle="tooltip"--}}
+{{--                                                                    data-bs-original-title="{{ __('Delete') }}"></i>--}}
+{{--                                                            </a>--}}
+{{--                                                            {!! Form::close() !!}--}}
+
+
+{{--                                                        </div>--}}
+{{--                                                    </td>--}}
+{{--                                                    @endif--}}
+{{--                                                </tr>--}}
+{{--                                            @endforeach--}}
+{{--                                        </tbody>--}}
+{{--                                    </table>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <!--Notes-->
                     <div id="useradd-6">
@@ -1446,238 +1446,238 @@ $profile = asset(Storage::url('uploads/avatar/'));
                         </div>
                     </div>
 
-                    <!--Client Feedback-->
-                    <div id="useradd-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="mb-0">{{ __('Client Feedback') }}</h5>
-                            </div>
-                            <div class="card-body">
-                                @foreach ($feedbacks as $feedback)
-                                    <div class="media mb-2">
-                                        <a class="pr-2" href="#">
-                                            <img @if (!empty($feedback->feedbackUser) && !empty($feedback->feedbackUser->avatar)) src="{{ $profile . '/' . $feedback->feedbackUser->avatar }}" @else  avatar="{{ !empty($feedback->feedbackUser) ? $feedback->feedbackUser->name : '' }}" @endif
-                                                class="rounded-circle" alt="" height="32">
-                                        </a>
-                                        <div class="media-body">
-                                            <h6 class="mt-0 ms-2">
-                                                {{ !empty($feedback->feedbackUser) ? $feedback->feedbackUser->name : '' }}
-                                                <small class="text-muted float-right">{{ $feedback->created_at }}</small>
-                                            </h6>
+{{--                    <!--Client Feedback-->--}}
+{{--                    <div id="useradd-9">--}}
+{{--                        <div class="card">--}}
+{{--                            <div class="card-header">--}}
+{{--                                <h5 class="mb-0">{{ __('Client Feedback') }}</h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="card-body">--}}
+{{--                                @foreach ($feedbacks as $feedback)--}}
+{{--                                    <div class="media mb-2">--}}
+{{--                                        <a class="pr-2" href="#">--}}
+{{--                                            <img @if (!empty($feedback->feedbackUser) && !empty($feedback->feedbackUser->avatar)) src="{{ $profile . '/' . $feedback->feedbackUser->avatar }}" @else  avatar="{{ !empty($feedback->feedbackUser) ? $feedback->feedbackUser->name : '' }}" @endif--}}
+{{--                                                class="rounded-circle" alt="" height="32">--}}
+{{--                                        </a>--}}
+{{--                                        <div class="media-body">--}}
+{{--                                            <h6 class="mt-0 ms-2">--}}
+{{--                                                {{ !empty($feedback->feedbackUser) ? $feedback->feedbackUser->name : '' }}--}}
+{{--                                                <small class="text-muted float-right">{{ $feedback->created_at }}</small>--}}
+{{--                                            </h6>--}}
 
-                                            <p class="text-sm mb-0 ms-2">
-                                                {{ $feedback->feedback }}
-                                            </p>
-                                            <div class="text-end">
-                                                @if (!empty($feedback->file))
-                                                    <div class="action-btn bg-warning ms-2">
-                                                        <a href="#" class="like active">
-                                                            <i class="ni ni-cloud-download-95"></i>
-                                                            <a href="{{ asset(Storage::url('uploads/files')) . '/' . $feedback->file }}"
-                                                                download=""
-                                                                class="mx-3 btn btn-sm d-inline-flex align-items-center"
-                                                                data-bs-toggle="tooltip" title="{{ __('Download') }}"> <i
-                                                                    class="ti ti-download text-white"></i> </a>
-                                                        </a>
-                                                    </div>
-                                                @endif
-                                                <div class="action-btn bg-info ms-2">
-                                                    <a href="#"
-                                                        data-url="{{ route('project.client.feedback.reply', [$project->id, $feedback->id]) }}"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                        data-bs-whatever="{{ __('Create feedback Reply') }}"
-                                                        class="mx-3 btn btn-sm d-inline-flex align-items-center">
-                                                        <i class="ti ti-send text-white" data-bs-toggle="tooltip"
-                                                            data-bs-original-title="{{ __('Reply') }}"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            @foreach ($feedback->subfeedback as $subfeedback)
-                                                <div class="media mt-3">
-                                                    <a class="pr-2" href="#">
-                                                        <img @if (!empty($subfeedback->feedbackUser && !empty($subfeedback->feedbackUser->avatar))) src="{{ $profile . '/' . $subfeedback->feedbackUser->avatar }}" @else  avatar="{{ !empty($subfeedback->feedbackUser) ? $subfeedback->feedbackUser->name : '' }}" @endif
-                                                            class="rounded-circle" alt="" height="32">
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <h6 class="mt-0 ms-2">
-                                                            {{ !empty($subfeedback->feedbackUser) ? $subfeedback->feedbackUser->name : '' }}
-                                                            <small
-                                                                class="text-muted float-right">{{ $subfeedback->created_at }}</small>
-                                                        </h6>
-                                                        <p class="text-sm mb-0 ms-2">
-                                                            {{ $subfeedback->feedback }}
-                                                        </p>
+{{--                                            <p class="text-sm mb-0 ms-2">--}}
+{{--                                                {{ $feedback->feedback }}--}}
+{{--                                            </p>--}}
+{{--                                            <div class="text-end">--}}
+{{--                                                @if (!empty($feedback->file))--}}
+{{--                                                    <div class="action-btn bg-warning ms-2">--}}
+{{--                                                        <a href="#" class="like active">--}}
+{{--                                                            <i class="ni ni-cloud-download-95"></i>--}}
+{{--                                                            <a href="{{ asset(Storage::url('uploads/files')) . '/' . $feedback->file }}"--}}
+{{--                                                                download=""--}}
+{{--                                                                class="mx-3 btn btn-sm d-inline-flex align-items-center"--}}
+{{--                                                                data-bs-toggle="tooltip" title="{{ __('Download') }}"> <i--}}
+{{--                                                                    class="ti ti-download text-white"></i> </a>--}}
+{{--                                                        </a>--}}
+{{--                                                    </div>--}}
+{{--                                                @endif--}}
+{{--                                                <div class="action-btn bg-info ms-2">--}}
+{{--                                                    <a href="#"--}}
+{{--                                                        data-url="{{ route('project.client.feedback.reply', [$project->id, $feedback->id]) }}"--}}
+{{--                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"--}}
+{{--                                                        data-bs-whatever="{{ __('Create feedback Reply') }}"--}}
+{{--                                                        class="mx-3 btn btn-sm d-inline-flex align-items-center">--}}
+{{--                                                        <i class="ti ti-send text-white" data-bs-toggle="tooltip"--}}
+{{--                                                            data-bs-original-title="{{ __('Reply') }}"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            @foreach ($feedback->subfeedback as $subfeedback)--}}
+{{--                                                <div class="media mt-3">--}}
+{{--                                                    <a class="pr-2" href="#">--}}
+{{--                                                        <img @if (!empty($subfeedback->feedbackUser && !empty($subfeedback->feedbackUser->avatar))) src="{{ $profile . '/' . $subfeedback->feedbackUser->avatar }}" @else  avatar="{{ !empty($subfeedback->feedbackUser) ? $subfeedback->feedbackUser->name : '' }}" @endif--}}
+{{--                                                            class="rounded-circle" alt="" height="32">--}}
+{{--                                                    </a>--}}
+{{--                                                    <div class="media-body">--}}
+{{--                                                        <h6 class="mt-0 ms-2">--}}
+{{--                                                            {{ !empty($subfeedback->feedbackUser) ? $subfeedback->feedbackUser->name : '' }}--}}
+{{--                                                            <small--}}
+{{--                                                                class="text-muted float-right">{{ $subfeedback->created_at }}</small>--}}
+{{--                                                        </h6>--}}
+{{--                                                        <p class="text-sm mb-0 ms-2">--}}
+{{--                                                            {{ $subfeedback->feedback }}--}}
+{{--                                                        </p>--}}
 
-                                                        @if (!empty($subfeedback->file))
-                                                            <div class="action-btn bg-warning ms-2">
-                                                                <a href="{{ asset(Storage::url('uploads/files')) . '/' . $subfeedback->file }}"
-                                                                    download="" data-bs-toggle="tooptip"
-                                                                    title="{{ __('Download') }}"
-                                                                    class="mx-3 btn btn-sm d-inline-flex align-items-center"><i
-                                                                        class="ti ti-download text-white"></i></a>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                @endforeach
+{{--                                                        @if (!empty($subfeedback->file))--}}
+{{--                                                            <div class="action-btn bg-warning ms-2">--}}
+{{--                                                                <a href="{{ asset(Storage::url('uploads/files')) . '/' . $subfeedback->file }}"--}}
+{{--                                                                    download="" data-bs-toggle="tooptip"--}}
+{{--                                                                    title="{{ __('Download') }}"--}}
+{{--                                                                    class="mx-3 btn btn-sm d-inline-flex align-items-center"><i--}}
+{{--                                                                        class="ti ti-download text-white"></i></a>--}}
+{{--                                                            </div>--}}
+{{--                                                        @endif--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            @endforeach--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endforeach--}}
 
-                                <div class="border rounded mt-4">
+{{--                                <div class="border rounded mt-4">--}}
 
-                                    {{ Form::open(['route' => ['project.client.feedback.store', $project->id], 'enctype' => 'multipart/form-data']) }}
-                                    <textarea rows="3" class="form-control border-0 resize-none" name="feedback" placeholder="Your feedback..."
-                                        required></textarea>
-                                    <div class="p-2 bg-light d-flex justify-content-between align-items-center">
-                                        <div>
-                                            {{ Form::file('file', null, ['class' => 'form-control', 'required' => 'required']) }}
-                                        </div>
-                                        <button type="submit" class="btn btn-primary"><i
-                                                class='uil uil-message mr-1'></i>{{ __('Post') }}</button>
-                                    </div>
-                                    {{ Form::close() }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{{--                                    {{ Form::open(['route' => ['project.client.feedback.store', $project->id], 'enctype' => 'multipart/form-data']) }}--}}
+{{--                                    <textarea rows="3" class="form-control border-0 resize-none" name="feedback" placeholder="Your feedback..."--}}
+{{--                                        required></textarea>--}}
+{{--                                    <div class="p-2 bg-light d-flex justify-content-between align-items-center">--}}
+{{--                                        <div>--}}
+{{--                                            {{ Form::file('file', null, ['class' => 'form-control', 'required' => 'required']) }}--}}
+{{--                                        </div>--}}
+{{--                                        <button type="submit" class="btn btn-primary"><i--}}
+{{--                                                class='uil uil-message mr-1'></i>{{ __('Post') }}</button>--}}
+{{--                                    </div>--}}
+{{--                                    {{ Form::close() }}--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <!--Invoice-->
-                    @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')
-                        <div id="useradd-10">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="mb-0">{{ __('Invoice') }}</h5>
-                                </div>
+{{--                    <!--Invoice-->--}}
+{{--                    @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')--}}
+{{--                        <div id="useradd-10">--}}
+{{--                            <div class="card">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h5 class="mb-0">{{ __('Invoice') }}</h5>--}}
+{{--                                </div>--}}
 
-                                <div class="card-body">
-                                    <div class="row notes-list">
-                                        @foreach ($invoices as $invoice)
-                                            <div class="col-md-6">
-                                                <div class="card hover-shadow-lg">
-                                                    <div class="card-header border-0">
-                                                        <div class="row align-items-center">
-                                                            <div class="col-10">
-                                                                <h6 class="mb-0">
-                                                                    <a
-                                                                        href="{{ route('invoice.show', \Crypt::encrypt($invoice->id)) }}">{{ \Auth::user()->invoiceNumberFormat($invoice->invoice_id) }}</a>
-                                                                </h6>
-                                                            </div>
-                                                            <div class="col-2 text-end">
-                                                                <div class="actions">
-                                                                    <div class="dropdown">
-                                                                        <a href="#" class="action-item"
-                                                                            data-bs-toggle="dropdown"><i
-                                                                                class="fas fa-ellipsis-v"></i></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')
-                                                                                <a href="{{ route('invoice.show', \Crypt::encrypt($invoice->id)) }}"
-                                                                                    class="dropdown-item">
-                                                                                    <i
-                                                                                        class="ti ti-eye"></i>{{ __('View') }}
-                                                                                </a>
-                                                                            @endif
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="row notes-list">--}}
+{{--                                        @foreach ($invoices as $invoice)--}}
+{{--                                            <div class="col-md-6">--}}
+{{--                                                <div class="card hover-shadow-lg">--}}
+{{--                                                    <div class="card-header border-0">--}}
+{{--                                                        <div class="row align-items-center">--}}
+{{--                                                            <div class="col-10">--}}
+{{--                                                                <h6 class="mb-0">--}}
+{{--                                                                    <a--}}
+{{--                                                                        href="{{ route('invoice.show', \Crypt::encrypt($invoice->id)) }}">{{ \Auth::user()->invoiceNumberFormat($invoice->invoice_id) }}</a>--}}
+{{--                                                                </h6>--}}
+{{--                                                            </div>--}}
+{{--                                                            <div class="col-2 text-end">--}}
+{{--                                                                <div class="actions">--}}
+{{--                                                                    <div class="dropdown">--}}
+{{--                                                                        <a href="#" class="action-item"--}}
+{{--                                                                            data-bs-toggle="dropdown"><i--}}
+{{--                                                                                class="fas fa-ellipsis-v"></i></a>--}}
+{{--                                                                        <div class="dropdown-menu dropdown-menu-end">--}}
+{{--                                                                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')--}}
+{{--                                                                                <a href="{{ route('invoice.show', \Crypt::encrypt($invoice->id)) }}"--}}
+{{--                                                                                    class="dropdown-item">--}}
+{{--                                                                                    <i--}}
+{{--                                                                                        class="ti ti-eye"></i>{{ __('View') }}--}}
+{{--                                                                                </a>--}}
+{{--                                                                            @endif--}}
 
-                                                                            @if (\Auth::user()->type == 'company')
-                                                                                <a href="#!"
-                                                                                    data-url="{{ route('invoice.edit', $invoice->id) }}"
-                                                                                    class="dropdown-item" data-toggle="tooltip"
-                                                                                    data-original-title="{{ __('Edit') }}"
-                                                                                    data-bs-toggle="modal"
-                                                                                    data-bs-target="#exampleModal"
-                                                                                    data-bs-whatever="{{ __('Edit Invoice') }}">
-                                                                                    <i
-                                                                                        class="ti ti-edit"></i>{{ __('Edit') }}
-                                                                                </a>
+{{--                                                                            @if (\Auth::user()->type == 'company')--}}
+{{--                                                                                <a href="#!"--}}
+{{--                                                                                    data-url="{{ route('invoice.edit', $invoice->id) }}"--}}
+{{--                                                                                    class="dropdown-item" data-toggle="tooltip"--}}
+{{--                                                                                    data-original-title="{{ __('Edit') }}"--}}
+{{--                                                                                    data-bs-toggle="modal"--}}
+{{--                                                                                    data-bs-target="#exampleModal"--}}
+{{--                                                                                    data-bs-whatever="{{ __('Edit Invoice') }}">--}}
+{{--                                                                                    <i--}}
+{{--                                                                                        class="ti ti-edit"></i>{{ __('Edit') }}--}}
+{{--                                                                                </a>--}}
 
 
-                                                                                {!! Form::open(['method' => 'DELETE', 'route' => ['invoice.destroy', $invoice->id]]) !!}
-                                                                                <a href="#!" class=" show_confirm dropdown-item">
-                                                                                    <i
-                                                                                        class="ti ti-trash"></i>{{ __('Delete') }}
-                                                                                </a>
-                                                                                {!! Form::close() !!}
-                                                                            @endif
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pt-0">
-                                                        <div class="p-3 border border-dashed">
-                                                            @if ($invoice->status == 0)
-                                                                <span
-                                                                    class="badge badge-primary">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>
-                                                            @elseif($invoice->status == 1)
-                                                                <span
-                                                                    class="badge badge-warning">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>
-                                                            @elseif($invoice->status == 2)
-                                                                <span
-                                                                    class="badge badge-danger">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>
-                                                            @elseif($invoice->status == 3)
-                                                                <span
-                                                                    class="badge badge-info">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>
-                                                            @elseif($invoice->status == 4)
-                                                                <span
-                                                                    class="badge badge-success">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>
-                                                            @endif
-                                                            <div class="row align-items-center mt-3">
-                                                                <div class="col-6">
-                                                                    <h6 class="mb-0">
-                                                                        {{ \Auth::user()->priceFormat($invoice->getTotal()) }}
-                                                                    </h6>
-                                                                    <span
-                                                                        class="text-sm text-muted">{{ __('Total Amount') }}</span>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <h6 class="mb-0">
-                                                                        {{ \Auth::user()->priceFormat($invoice->getDue()) }}</h6>
-                                                                    <span
-                                                                        class="text-sm text-muted">{{ __('Due Amount') }}</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row align-items-center mt-3">
-                                                                <div class="col-6">
-                                                                    <h6 class="mb-0">
-                                                                        {{ \Auth::user()->dateFormat($invoice->issue_date) }}</h6>
-                                                                    <span
-                                                                        class="text-sm text-muted">{{ __('Issue Date') }}</span>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <h6 class="mb-0">
-                                                                        {{ \Auth::user()->dateFormat($invoice->due_date) }}</h6>
-                                                                    <span class="text-sm text-muted">{{ __('Due Date') }}</span>
-                                                                </div>
-                                                            </div>
+{{--                                                                                {!! Form::open(['method' => 'DELETE', 'route' => ['invoice.destroy', $invoice->id]]) !!}--}}
+{{--                                                                                <a href="#!" class=" show_confirm dropdown-item">--}}
+{{--                                                                                    <i--}}
+{{--                                                                                        class="ti ti-trash"></i>{{ __('Delete') }}--}}
+{{--                                                                                </a>--}}
+{{--                                                                                {!! Form::close() !!}--}}
+{{--                                                                            @endif--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="card-body pt-0">--}}
+{{--                                                        <div class="p-3 border border-dashed">--}}
+{{--                                                            @if ($invoice->status == 0)--}}
+{{--                                                                <span--}}
+{{--                                                                    class="badge badge-primary">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>--}}
+{{--                                                            @elseif($invoice->status == 1)--}}
+{{--                                                                <span--}}
+{{--                                                                    class="badge badge-warning">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>--}}
+{{--                                                            @elseif($invoice->status == 2)--}}
+{{--                                                                <span--}}
+{{--                                                                    class="badge badge-danger">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>--}}
+{{--                                                            @elseif($invoice->status == 3)--}}
+{{--                                                                <span--}}
+{{--                                                                    class="badge badge-info">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>--}}
+{{--                                                            @elseif($invoice->status == 4)--}}
+{{--                                                                <span--}}
+{{--                                                                    class="badge badge-success">{{ __(\App\Models\Invoice::$statues[$invoice->status]) }}</span>--}}
+{{--                                                            @endif--}}
+{{--                                                            <div class="row align-items-center mt-3">--}}
+{{--                                                                <div class="col-6">--}}
+{{--                                                                    <h6 class="mb-0">--}}
+{{--                                                                        {{ \Auth::user()->priceFormat($invoice->getTotal()) }}--}}
+{{--                                                                    </h6>--}}
+{{--                                                                    <span--}}
+{{--                                                                        class="text-sm text-muted">{{ __('Total Amount') }}</span>--}}
+{{--                                                                </div>--}}
+{{--                                                                <div class="col-6">--}}
+{{--                                                                    <h6 class="mb-0">--}}
+{{--                                                                        {{ \Auth::user()->priceFormat($invoice->getDue()) }}</h6>--}}
+{{--                                                                    <span--}}
+{{--                                                                        class="text-sm text-muted">{{ __('Due Amount') }}</span>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                            <div class="row align-items-center mt-3">--}}
+{{--                                                                <div class="col-6">--}}
+{{--                                                                    <h6 class="mb-0">--}}
+{{--                                                                        {{ \Auth::user()->dateFormat($invoice->issue_date) }}</h6>--}}
+{{--                                                                    <span--}}
+{{--                                                                        class="text-sm text-muted">{{ __('Issue Date') }}</span>--}}
+{{--                                                                </div>--}}
+{{--                                                                <div class="col-6">--}}
+{{--                                                                    <h6 class="mb-0">--}}
+{{--                                                                        {{ \Auth::user()->dateFormat($invoice->due_date) }}</h6>--}}
+{{--                                                                    <span class="text-sm text-muted">{{ __('Due Date') }}</span>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
 
-                                                        </div>
-                                                        @if (\Auth::user()->type != 'client')
-                                                            @php $client=$invoice->clients @endphp
-                                                            <div class="media mt-4 align-items-center">
-                                                                <img @if (!empty($client->avatar)) src="{{ $profile . '/' . $client->avatar }}" @else avatar="{{ $invoice->clients->name }}" @endif
-                                                                    class="avatar rounded-circle avatar-custom"
-                                                                    data-toggle="tooltip"
-                                                                    data-original-title="{{ __('Client') }}">
-                                                                <div class="media-body pl-3">
-                                                                    <div class="text-sm my-0">
-                                                                        {{ !empty($invoice->clients) ? $invoice->clients->name : '' }}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
+{{--                                                        </div>--}}
+{{--                                                        @if (\Auth::user()->type != 'client')--}}
+{{--                                                            @php $client=$invoice->clients @endphp--}}
+{{--                                                            <div class="media mt-4 align-items-center">--}}
+{{--                                                                <img @if (!empty($client->avatar)) src="{{ $profile . '/' . $client->avatar }}" @else avatar="{{ $invoice->clients->name }}" @endif--}}
+{{--                                                                    class="avatar rounded-circle avatar-custom"--}}
+{{--                                                                    data-toggle="tooltip"--}}
+{{--                                                                    data-original-title="{{ __('Client') }}">--}}
+{{--                                                                <div class="media-body pl-3">--}}
+{{--                                                                    <div class="text-sm my-0">--}}
+{{--                                                                        {{ !empty($invoice->clients) ? $invoice->clients->name : '' }}--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        @endif--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        @endforeach--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
 
                     <!--Timesheets-->
-                    @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')
+                    @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')
                         <div id="useradd-11">
                             <div class="card">
                                 <div class="card-header">
@@ -1775,64 +1775,64 @@ $profile = asset(Storage::url('uploads/avatar/'));
                         </div>
                     @endif
 
-                    <!--payments-->
-                    @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')
-                        <div id="useradd-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="mb-0">{{ __('Payment') }}</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table" id="pc-dt-simple">
-                                            <thead>
-                                                <tr>
-                                                    <th>{{ __('Transaction ID') }}</th>
-                                                    <th>{{ __('Invoice ID') }}</th>
-                                                    <th>{{ __('Payment Date') }}</th>
-                                                    <th>{{ __('Payment Method') }}</th>
-                                                    <th>{{ __('Payment Type') }}</th>
-                                                    <th>{{ __('Notes') }}</th>
-                                                    <th>{{ __('Amount') }}</th>
-                                                    <th>{{ __('Action') }}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($invoices as $invoice)
-                                                    @foreach ($invoice->payments as $payment)
-                                                        <tr>
-                                                            <td>{{ \Auth::user()->invoiceNumberFormat($invoice->invoice_id) }}
-                                                            </td>
-                                                            <td>{{ $payment->transaction }} </td>
-                                                            <td>{{ \Auth::user()->dateFormat($payment->date) }} </td>
-                                                            <td>{{ !empty($payment->payments) ? $payment->payments->name : '' }}
-                                                            </td>
-                                                            <td>{{ $payment->payment_type }} </td>
-                                                            <td>{{ $payment->notes }} </td>
-                                                            <td> {{ \Auth::user()->priceFormat($payment->amount) }}</td>
-                                                            <td width="7%" class="text-end">
-                                                                <div class="action-btn bg-warning ms-2">
-                                                                    <a href="{{ route('invoice.show', \Crypt::encrypt($invoice->id)) }}"
-                                                                        class="mx-3 btn btn-sm d-inline-flex align-items-center"
-                                                                        data-bs-toggle="tooltip"
-                                                                        title="{{ __('View') }}">
-                                                                        <i class="ti ti-eye text-white"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
+{{--                    <!--payments-->--}}
+{{--                    @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')--}}
+{{--                        <div id="useradd-12">--}}
+{{--                            <div class="card">--}}
+{{--                                <div class="card-header">--}}
+{{--                                    <h5 class="mb-0">{{ __('Payment') }}</h5>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="table-responsive">--}}
+{{--                                        <table class="table" id="pc-dt-simple">--}}
+{{--                                            <thead>--}}
+{{--                                                <tr>--}}
+{{--                                                    <th>{{ __('Transaction ID') }}</th>--}}
+{{--                                                    <th>{{ __('Invoice ID') }}</th>--}}
+{{--                                                    <th>{{ __('Payment Date') }}</th>--}}
+{{--                                                    <th>{{ __('Payment Method') }}</th>--}}
+{{--                                                    <th>{{ __('Payment Type') }}</th>--}}
+{{--                                                    <th>{{ __('Notes') }}</th>--}}
+{{--                                                    <th>{{ __('Amount') }}</th>--}}
+{{--                                                    <th>{{ __('Action') }}</th>--}}
+{{--                                                </tr>--}}
+{{--                                            </thead>--}}
+{{--                                            <tbody>--}}
+{{--                                                @foreach ($invoices as $invoice)--}}
+{{--                                                    @foreach ($invoice->payments as $payment)--}}
+{{--                                                        <tr>--}}
+{{--                                                            <td>{{ \Auth::user()->invoiceNumberFormat($invoice->invoice_id) }}--}}
+{{--                                                            </td>--}}
+{{--                                                            <td>{{ $payment->transaction }} </td>--}}
+{{--                                                            <td>{{ \Auth::user()->dateFormat($payment->date) }} </td>--}}
+{{--                                                            <td>{{ !empty($payment->payments) ? $payment->payments->name : '' }}--}}
+{{--                                                            </td>--}}
+{{--                                                            <td>{{ $payment->payment_type }} </td>--}}
+{{--                                                            <td>{{ $payment->notes }} </td>--}}
+{{--                                                            <td> {{ \Auth::user()->priceFormat($payment->amount) }}</td>--}}
+{{--                                                            <td width="7%" class="text-end">--}}
+{{--                                                                <div class="action-btn bg-warning ms-2">--}}
+{{--                                                                    <a href="{{ route('invoice.show', \Crypt::encrypt($invoice->id)) }}"--}}
+{{--                                                                        class="mx-3 btn btn-sm d-inline-flex align-items-center"--}}
+{{--                                                                        data-bs-toggle="tooltip"--}}
+{{--                                                                        title="{{ __('View') }}">--}}
+{{--                                                                        <i class="ti ti-eye text-white"></i>--}}
+{{--                                                                    </a>--}}
+{{--                                                                </div>--}}
+{{--                                                            </td>--}}
+{{--                                                        </tr>--}}
+{{--                                                    @endforeach--}}
+{{--                                                @endforeach--}}
+{{--                                            </tbody>--}}
+{{--                                        </table>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
 
                     <!--Expense-->
-                    @if (\Auth::user()->type == 'company')
+                    @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')
                         <div id="useradd-13">
                             <div class="card">
                                 <div class="card-header">
