@@ -49,26 +49,26 @@
 {{--                    </li>--}}
 {{--                @endif--}}
 
-{{--                @if (\Auth::user()->type == 'company')--}}
-{{--                    <li--}}
-{{--                        class="dash-item dash-hasmenu {{ Request::segment(1) == 'employee' || Request::segment(1) == 'client' ? 'active dash-trigger' : '' }}">--}}
-{{--                        <a class="dash-link " data-toggle="collapse" role="button"--}}
-{{--                            aria-controls="navbar-getting-started"><span class="dash-micon"><i--}}
-{{--                                    class="ti ti-users"></i></span><span--}}
-{{--                                class="dash-mtext">{{ __('Staff') }}</span><span class="dash-arrow"><i--}}
-{{--                                    data-feather="chevron-right"></i></span></a>--}}
-{{--                        <ul class="dash-submenu">--}}
+                @if (\Auth::user()->type == 'company')
+                    <li
+                        class="dash-item dash-hasmenu {{ Request::segment(1) == 'employee' || Request::segment(1) == 'client' ? 'active dash-trigger' : '' }}">
+                        <a class="dash-link " data-toggle="collapse" role="button"
+                            aria-controls="navbar-getting-started"><span class="dash-micon"><i
+                                    class="ti ti-users"></i></span><span
+                                class="dash-mtext">{{ __('Staff') }}</span><span class="dash-arrow"><i
+                                    data-feather="chevron-right"></i></span></a>
+                        <ul class="dash-submenu">
 {{--                            <li--}}
 {{--                                class="dash-item dash-hasmenu {{ Request::segment(1) == 'employee' ? 'active ' : '' }}">--}}
 {{--                                <a class="dash-link"--}}
 {{--                                    href="{{ route('employee.index') }}">{{ __('Employee') }}</span></a>--}}
 
 {{--                            </li>--}}
-{{--                            <li class="dash-item dash-hasmenu {{ Request::segment(1) == 'client' ? 'active' : '' }}">--}}
-{{--                                <a class="dash-link"--}}
-{{--                                    href="{{ route('client.index') }}">{{ __('Client') }}</a>--}}
+                            <li class="dash-item dash-hasmenu {{ Request::segment(1) == 'client' ? 'active' : '' }}">
+                                <a class="dash-link"
+                                    href="{{ route('client.index') }}">{{ __('User') }}</a>
 
-{{--                            </li>--}}
+                            </li>
 
 {{--                        </ul>--}}
 {{--                    </li>--}}
