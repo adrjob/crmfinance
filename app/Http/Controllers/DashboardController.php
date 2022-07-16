@@ -25,6 +25,7 @@ use App\Models\ProjectStage;
 use App\Models\ProjectTask;
 use App\Models\Support;
 use App\Models\User;
+use App\Models\UserDefualtView;
 use App\Models\Utility;
 use Carbon\Carbon;
 use Auth;
@@ -43,6 +44,39 @@ class DashboardController extends Controller
                 $expenses = Expense::where('created_by', \Auth::user()->creatorId())->get();
 
                 return view('expense.index', compact('expenses'));
+            }
+            elseif (\Auth::user()->type == 'client')
+            {
+                $user = \Auth::user();
+                if(\Auth::user()->type == 'client')
+                {
+                    $projects = Project::where('client', '=', $user->id)->get();
+                }
+                elseif(\Auth::user()->type == 'employee')
+                {
+                    $projects = Project::select('projects.*')->leftjoin('project_users', 'project_users.project_id', 'projects.id')->where('project_users.user_id', '=', $user->id)->get();
+                }
+                else
+                {
+                    $projects = Project::where('created_by', '=', $user->creatorId())->get();
+                }
+
+
+                $projectStatus = [
+                    'not_started' => __('Not Started'),
+                    'in_progress' => __('In Progress'),
+                    'on_hold' => __('On Hold'),
+                    'canceled' => __('Canceled'),
+                    'finished' => __('Finished'),
+                ];
+
+                $defualtView         = new UserDefualtView();
+                $defualtView->route  = \Request::route()->getName();
+                $defualtView->module = 'project';
+                $defualtView->view   = 'list';
+                User::userDefualtView($defualtView);
+
+                return view('project.index', compact('projects', 'projectStatus'));
             }
             else
             {

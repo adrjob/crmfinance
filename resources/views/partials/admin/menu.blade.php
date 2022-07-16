@@ -262,35 +262,41 @@
 {{--                    </li>--}}
 {{--                @endif--}}
 
-{{--                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client' || \Auth::user()->type == 'employee')--}}
-{{--                    <li--}}
-{{--                        class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' || Request::segment(1) == 'allTask' || Request::segment(1) == 'allTimesheet'? 'active dash-trigger': '' }}">--}}
-{{--                        <a href="#!" class="dash-link"><span class="dash-micon"><i--}}
-{{--                                    class="ti ti-list-check"></i></span><span--}}
-{{--                                class="dash-mtext">{{ __('Project') }}</span><span class="dash-arrow"><i--}}
-{{--                                    data-feather="chevron-right"></i></span></a>--}}
-{{--                        <ul class="dash-submenu">--}}
-{{--                            <li--}}
-{{--                                class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' && Request::segment(2) != 'allTask' &&Request::segment(2) != 'allTaskKanban' &&Request::segment(2) != 'allTimesheet'? 'active  dash-trigger': '' }}">--}}
-{{--                                <a class="dash-link"--}}
-{{--                                    href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('project'))? route(\Auth::user()->getDefualtViewRouteByModule('project')): route('project.index') }}">{{ __('All Project') }}</a>--}}
-{{--                            </li>--}}
-{{--                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')--}}
-{{--                                <li--}}
-{{--                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTask' || Request::segment(2) == 'allTaskKanban' ? 'active' : '' }}">--}}
-{{--                                    <a class="dash-link"--}}
-{{--                                        href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('all task'))? route(\Auth::user()->getDefualtViewRouteByModule('all task')): route('project.all.task') }}">{{ __('Task') }}</a>--}}
-{{--                                </li>--}}
-{{--                                <li--}}
-{{--                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTimesheet' ? 'active' : '' }}">--}}
-{{--                                    <a class="dash-link"--}}
-{{--                                        href="{{ route('project.all.timesheet') }}">{{ __('Timesheets') }}</a>--}}
-{{--                                </li>--}}
-{{--                            @endif--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
-{{--                @endif--}}
-{{--                </li>--}}
+                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client' || \Auth::user()->type == 'employee')
+                    <li
+                        class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' || Request::segment(1) == 'allTask' || Request::segment(1) == 'allTimesheet'? 'active dash-trigger': '' }}">
+                        <a href="#!" class="dash-link"><span class="dash-micon"><i
+                                    class="ti ti-list-check"></i></span><span
+                                class="dash-mtext">{{ __('Project') }}</span><span class="dash-arrow"><i
+                                    data-feather="chevron-right"></i></span></a>
+                        <ul class="dash-submenu">
+                            <li
+                                class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' && Request::segment(2) != 'allTask' &&Request::segment(2) != 'allTaskKanban' &&Request::segment(2) != 'allTimesheet'? 'active  dash-trigger': '' }}">
+                                <a class="dash-link"
+                                    href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('project'))? route(\Auth::user()->getDefualtViewRouteByModule('project')): route('project.index') }}">{{ __('All Project') }}</a>
+                            </li>
+                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')
+                                <li
+                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTask' || Request::segment(2) == 'allTaskKanban' ? 'active' : '' }}">
+                                    <a class="dash-link"
+                                        href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('all task'))? route(\Auth::user()->getDefualtViewRouteByModule('all task')): route('project.all.task') }}">{{ __('Task') }}</a>
+                                </li>
+                                <li
+                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTimesheet' ? 'active' : '' }}">
+                                    <a class="dash-link"
+                                        href="{{ route('project.all.timesheet') }}">{{ __('Timesheets') }}</a>
+                                </li>
+                            @endif
+                            @if(Auth::user()->type == 'company')
+                            <li class="dash-item">
+                                <a class="dash-link"
+                                   href="{{ route('category.index') }}">{{ __('Category') }}</a>
+                            </li>
+                                @endif
+                        </ul>
+                    </li>
+                @endif
+                </li>
 
 {{--                @if (\Auth::user()->type == 'company')--}}
 {{--                    <li class="dash-item ">--}}

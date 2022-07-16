@@ -13,7 +13,7 @@ class ExpenseController extends Controller
 
     public function index()
     {
-        if(\Auth::user()->type == 'company')
+        if(\Auth::user()->type == 'company' or \Auth::user()->type == 'client')
         {
             $expenses = Expense::where('created_by', \Auth::user()->creatorId())->get();
 
@@ -40,7 +40,7 @@ class ExpenseController extends Controller
 
     public function store(Request $request)
     {
-        if(\Auth::user()->type == 'company')
+        if(\Auth::user()->type == 'company' or \Auth::user()->type == 'client')
         {
             $validator = \Validator::make(
                 $request->all(), [
@@ -100,7 +100,7 @@ class ExpenseController extends Controller
 
     public function update(Request $request, Expense $expense)
     {
-        if(\Auth::user()->type == 'company')
+        if(\Auth::user()->type == 'company' or \Auth::user()->type == 'client')
         {
             $validator = \Validator::make(
                 $request->all(), [
@@ -146,7 +146,7 @@ class ExpenseController extends Controller
 
     public function destroy(Expense $expense)
     {
-        if(\Auth::user()->type == 'company')
+        if(\Auth::user()->type == 'company' or \Auth::user()->type == 'client')
         {
             if($expense->attachment)
             {
@@ -166,6 +166,6 @@ class ExpenseController extends Controller
     public function download($image,$extension)
     {
         return Storage::download('uploads/attachment/'.$image.'.'.$extension);
-        
+
     }
 }
