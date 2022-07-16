@@ -70,8 +70,9 @@
 
                             </li>
 
-{{--                        </ul>--}}
-{{--                    </li>--}}
+                        </ul>
+                    </li>
+                @endif
 {{--                @elseif(\Auth::user()->type == 'employee')--}}
 {{--                    <li class="dash-item">--}}
 {{--                        <a href="{{ route('employee.show', \Crypt::encrypt(\Auth::user()->id)) }}"--}}
