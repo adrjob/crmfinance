@@ -493,19 +493,19 @@ $profile = asset(Storage::url('uploads/avatar/'));
                             <a href="#useradd-1"
                                 class="list-group-item list-group-item-action border-0">{{ __('Overview') }} <div
                                     class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#useradd-2"
-                                class="list-group-item list-group-item-action border-0">{{ __('Task List') }} <div
-                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#useradd-3"
+{{--                            <a href="#useradd-2"--}}
+{{--                                class="list-group-item list-group-item-action border-0">{{ __('Task List') }} <div--}}
+{{--                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
+{{--                            <a href="#useradd-3"--}}
                                 class="list-group-item list-group-item-action border-0">{{ __('Task Kanban') }} <div
                                     class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#useradd-4"
-                                class="list-group-item list-group-item-action border-0">{{ __('Gantt Chart') }} <div
-                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#useradd-5"
-                                class="list-group-item list-group-item-action border-0">{{ __('Milestone') }} <div
-                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#useradd-6"
+{{--                            <a href="#useradd-4"--}}
+{{--                                class="list-group-item list-group-item-action border-0">{{ __('Gantt Chart') }} <div--}}
+{{--                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
+{{--                            <a href="#useradd-5"--}}
+{{--                                class="list-group-item list-group-item-action border-0">{{ __('Milestone') }} <div--}}
+{{--                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
+{{--                            <a href="#useradd-6"--}}
                                 class="list-group-item list-group-item-action border-0">{{ __('Notes') }} <div
                                     class="float-end"><i class="ti ti-chevron-right"></i></div></a>
                             <a href="#useradd-7"
@@ -514,25 +514,25 @@ $profile = asset(Storage::url('uploads/avatar/'));
                             <a href="#useradd-8"
                                 class="list-group-item list-group-item-action border-0">{{ __('Comments') }} <div
                                     class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            <a href="#useradd-9"
-                                class="list-group-item list-group-item-action border-0">{{ __('Client Feedback') }} <div
-                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')
-                                <a href="#useradd-10"
-                                    class="list-group-item list-group-item-action border-0">{{ __('Invoice') }} <div
-                                        class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            @endif
+{{--                            <a href="#useradd-9"--}}
+{{--                                class="list-group-item list-group-item-action border-0">{{ __('Client Feedback') }} <div--}}
+{{--                                    class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
+{{--                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')--}}
+{{--                                <a href="#useradd-10"--}}
+{{--                                    class="list-group-item list-group-item-action border-0">{{ __('Invoice') }} <div--}}
+{{--                                        class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
+{{--                            @endif--}}
                             @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')
                                 <a href="#useradd-11"
                                     class="list-group-item list-group-item-action border-0">{{ __('Timesheets') }} <div
                                         class="float-end"><i class="ti ti-chevron-right"></i></div></a>
                             @endif
+{{--                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')--}}
+{{--                                <a href="#useradd-12"--}}
+{{--                                    class="list-group-item list-group-item-action border-0">{{ __('Payment') }} <div--}}
+{{--                                        class="float-end"><i class="ti ti-chevron-right"></i></div></a>--}}
+{{--                            @endif--}}
                             @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client')
-                                <a href="#useradd-12"
-                                    class="list-group-item list-group-item-action border-0">{{ __('Payment') }} <div
-                                        class="float-end"><i class="ti ti-chevron-right"></i></div></a>
-                            @endif
-                            @if (\Auth::user()->type == 'company')
                                 <a href="#useradd-13"
                                     class="list-group-item list-group-item-action border-0">{{ __('Expense') }} <div
                                         class="float-end"><i class="ti ti-chevron-right"></i></div></a>
@@ -755,7 +755,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
 
                     <!--Task List-->
                     <div id="useradd-2">
-                        
+
                             <div class="card">
                                 <div class="card-header">
                                     <div class="float-end">
@@ -790,7 +790,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                                 @foreach($tasks as $task)
                                                     <div class="card card-progress border shadow-none draggable-item">
                                                         @if($task->priority =='low')
-                                                        
+
                                                             <div class="progress">
                                                                 <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
                                                             </div>
@@ -803,8 +803,8 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                                                 <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                         @endif
-    
-    
+
+
                                                         <div class="card-body row align-items-center">
                                                             <div class="user-group1">
                                                                <span class="avatar avatar-sm rounded-circle mr-2">
@@ -870,7 +870,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                 </div>
 
                             </div>
-                    
+
                     </div>
 
                     <!--Task Kanban-->
@@ -895,7 +895,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    
+
                                         @php
                                             $json = [];
                                             foreach ($stages as $stage) {
@@ -923,7 +923,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                                             id="kanban-blacklist-{{$stage->id}}"
                                                             data-id="{{$stage->id}}">
                                                             @foreach($tasks as $task)
-                                                                
+
                                                                 <div class="card" data-id="{{$task->id}}">
                                                                     <div class="pt-3 ps-3">
                                                                         @if($task->priority =='low')
@@ -992,13 +992,13 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                                                                                     {!! Form::close() !!}
                                                                                                 </span>
                                                                                             @endif
-                                                                                       
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="card-body">
-                                                                            
+
                                                                             <div
                                                                                 class="d-flex align-items-center justify-content-between">
                                                                                 <ul class="list-inline mb-3 ms-1">
@@ -1025,21 +1025,21 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                                                                 <li
                                                                                         class="list-inline-item d-inline-flex align-items-center " style="
                                                                                         margin-left: 130px;
-                                                                                    ">  
+                                                                                    ">
                                                                                     <div class="user-group">
                                                                                             <a href="#"
                                                                                                 class="avatar rounded-circle avatar-sm text-end"
                                                                                                 data-original-title="{{!empty($task->taskUser)?$task->taskUser->name:''}}"
                                                                                                 data-toggle="tooltip">
-                                                                                                <img  @if($task->taskUser && !empty($task->taskUser->avatar)) src="{{$profile.'/'.$task->taskUser->avatar}}" @else avatar="{{!empty($task->taskUser)?$task->taskUser->name:''}}" @endif 
+                                                                                                <img  @if($task->taskUser && !empty($task->taskUser->avatar)) src="{{$profile.'/'.$task->taskUser->avatar}}" @else avatar="{{!empty($task->taskUser)?$task->taskUser->name:''}}" @endif
                                                                                                     class="">
                                                                                             </a>
-                                                                                    
+
                                                                                     </div>
                                                                                 </li>
                                                                                 </ul>
                                                                             </div>
-                                                                            
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1049,7 +1049,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                                 </div>
                                             @endforeach
                                         </div>
-                                   
+
                                     <!-- [ sample-page ] end -->
                                 </div>
                             </div>
@@ -1549,7 +1549,7 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                 <div class="card-header">
                                     <h5 class="mb-0">{{ __('Invoice') }}</h5>
                                 </div>
-                            
+
                                 <div class="card-body">
                                     <div class="row notes-list">
                                         @foreach ($invoices as $invoice)
