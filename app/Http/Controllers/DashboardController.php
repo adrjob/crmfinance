@@ -17,6 +17,7 @@ use App\Models\LandingPageSection;
 use App\Models\Lead;
 use App\Models\LeadStage;
 use App\Models\Meeting;
+use App\Models\NewExpenses;
 use App\Models\Order;
 use App\Models\Pipeline;
 use App\Models\Project;
@@ -41,9 +42,9 @@ class DashboardController extends Controller
 
             if(\Auth::user()->type == 'company')
             {
-                $expenses = Expense::where('created_by', \Auth::user()->creatorId())->get();
+                $userDetail = \Auth::user();
 
-                return view('expenses.index', compact('expenses'));
+                return view('user.profile', compact('userDetail'));
             }
             elseif (\Auth::user()->type == 'client')
             {
