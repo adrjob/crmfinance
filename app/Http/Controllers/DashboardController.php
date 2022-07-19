@@ -43,7 +43,7 @@ class DashboardController extends Controller
             {
                 $expenses = Expense::where('created_by', \Auth::user()->creatorId())->get();
 
-                return view('expense.index', compact('expenses'));
+                return view('expenses.index', compact('expenses'));
             }
             elseif (\Auth::user()->type == 'client')
             {

@@ -12,11 +12,7 @@
         <h5 class="h4 d-inline-block font-weight-400 mb-0">{{ $place->name }}</h5>
     </div>
 @endsection
-@section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">{{__('Dashboard')}}</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{__('Expenses')}}</li>
-    <li class="breadcrumb-item active" aria-current="page">{{__('All Expenses')}}</li>
-@endsection
+
 @section('action-btn')
     @if(\Auth::user()->type=='company')
         <a href="#" data-size="lg" data-url="{{ route('expenses.create') }}"data-bs-toggle="modal" data-bs-target="#exampleModal1"

@@ -12,11 +12,7 @@
         <h5 class="h4 d-inline-block font-weight-400 mb-0">{{__('Expenses Place')}}</h5>
     </div>
 @endsection
-@section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{route('dashboard')}}">{{__('Dashboard')}}</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{__('Expenses Place')}}</li>
-    <li class="breadcrumb-item active" aria-current="page">{{__('All Place')}}</li>
-@endsection
+
 @section('action-btn')
     <a href="{{ route('project.grid') }}" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Grid View') }}">
         <i class="ti ti-layout-grid text-white"></i>
