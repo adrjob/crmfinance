@@ -16,7 +16,7 @@
 @endsection
 @section('action-btn')
     @if(\Auth::user()->type=='company')
-        <a href="#" data-size="lg" data-url="{{ route('expense.create') }}"data-bs-toggle="modal" data-bs-target="#exampleModal" 
+        <a href="#" data-size="lg" data-url="{{ route('expense.create') }}"data-bs-toggle="modal" data-bs-target="#exampleModal"
          data-bs-whatever="{{__('Create New Expense')}}"
          class="btn btn-sm btn-primary btn-icon m-1">
             <i class="ti ti-plus" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Create') }}"></i>
@@ -54,7 +54,7 @@
                                             $x = pathinfo($expense->attachment, PATHINFO_FILENAME);
                                             $extension = pathinfo($expense->attachment, PATHINFO_EXTENSION);
                                             $result = str_replace(array("#", "'", ";"), '', $expense->attachment);
-                                        
+
                                         @endphp
                                         <a  href="{{route('expense.receipt' , [$x,"$extension"]) }}"  data-toggle="tooltip" class="btn btn-sm btn-secondary btn-icon rounded-pill">
                                             <i class="ti ti-download"></i>
@@ -85,7 +85,7 @@
                                                 </a>
                                                 {!! Form::close() !!}
                                             </div>
-                                        
+
                                         </td>
                                     @endif
                                 </tr>

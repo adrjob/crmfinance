@@ -1859,8 +1859,13 @@ $profile = asset(Storage::url('uploads/avatar/'));
                                                         </td>
                                                         <td>
                                                             @if (!empty($expense->attachment))
-                                                                <a href="{{ asset(Storage::url('uploads/attachment/' . $expense->attachment)) }}"
-                                                                    target="_blank">{{ $expense->attachment }}</a>
+{{--                                                                Storage::download('uploads/attachment/'.$image.'.'.$extension);--}}
+                                                                <img src="" alt="">
+{{--                                                                <img src="{{ asset(Storage::download('uploads/attachment/' . $expense->attachment)) }}">--}}
+{{--                                                                <a href="{{ asset(Storage::download('uploads/attachment/' . $expense->attachment)) }}"--}}
+{{--                                                                    >{{ $expense->attachment }}</a>--}}
+                                                                <a href="{{ $project->lol($expense->attachment) }}"
+                                                                >{{ $project->lol($expense->attachment) }}</a>
                                                             @else
                                                                 --
                                                             @endif

@@ -607,6 +607,48 @@ Route::group(
             'revalidate',
         ],
     ], function (){
+    Route::resource('expenses', 'NewExpensesController');
+}
+);
+
+Route::group(
+    [
+        'middleware' => [
+            'auth',
+            'XSS',
+            'revalidate',
+        ],
+    ], function (){
+    Route::resource('expensesInfo', 'NewExpensesInfoController');
+}
+);
+
+
+
+
+
+Route::group(
+    [
+        'middleware' => [
+            'auth',
+            'XSS',
+            'revalidate',
+        ],
+    ], function (){
+    Route::resource('place', 'ExpensesPlaceController');
+}
+);
+
+
+
+Route::group(
+    [
+        'middleware' => [
+            'auth',
+            'XSS',
+            'revalidate',
+        ],
+    ], function (){
     Route::get('contract/{id}/description', 'ContractController@description')->name('contract.description');
     Route::get('contract/grid', 'ContractController@grid')->name('contract.grid');
     Route::resource('contract', 'ContractController');
@@ -1016,7 +1058,6 @@ Route::group(
     Route::get('report/trial-balance', 'ReportController@trialBalanceSummary')->name('trial.balance');
 
 
-
     Route::get('estimate-report', 'ReportController@estimate')->name('report.estimate');
     Route::get('invoice-report', 'ReportController@invoice')->name('report.invoice');
     Route::get('lead-report', 'ReportController@lead')->name('report.lead');
@@ -1210,14 +1251,14 @@ Route::post('/LandingPage/copySection', 'LandingPageSectionController@copySectio
 Route::get('/plan/coingate/{plan}', ['as' => 'plan.coingate','uses' => 'CoingatePaymentController@getPaymentStatus']);
 Route::post('{id}/pay-with-paypal', 'PaypalController@clientPayWithPaypal')->name('client.pay.with.paypal')->middleware(
     [
-        
+
         'XSS',
         'revalidate',
     ]
 );
 Route::get('{id}/get-payment-status', 'PaypalController@clientGetPaymentStatus')->name('client.get.payment.status')->middleware(
     [
-       
+
         'XSS',
         'revalidate',
     ]
@@ -1225,7 +1266,7 @@ Route::get('{id}/get-payment-status', 'PaypalController@clientGetPaymentStatus')
 
 Route::post('invoice/{id}/payment', 'StripePaymentController@addpayment')->name('client.invoice.payment')->middleware(
     [
-       
+
         'XSS',
         'revalidate',
     ]
@@ -1362,7 +1403,7 @@ Route::get('estimate/pay/pdf/{id}', 'EstimateController@pdffromestimate')->name(
 Route::any('/invoice-pay-with-stripe/{invoice_id}/{pay_id}','StripePaymentController@getInvociePaymentStatus')->name('invoice.stripe')->middleware(['XSS']);
 
 
-//Import/Export 
+//Import/Export
 
 Route::get('import/employee/file', 'EmployeeController@importFile')->name('employee.file.import')->middleware(
     [

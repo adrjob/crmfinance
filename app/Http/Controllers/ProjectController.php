@@ -30,6 +30,7 @@ use App\Models\Utility;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -72,6 +73,12 @@ class ProjectController extends Controller
         {
             return redirect()->back()->with('error', __('Permission denied.'));
         }
+    }
+
+    public function download($image)
+    {
+        return Storage::download('uploads/attachment/'.$image);
+
     }
 
 
@@ -173,7 +180,7 @@ class ProjectController extends Controller
             else {
                 $resp = '';
             }
-           
+
 
             foreach($request->employee as $key => $emp)
             {
@@ -195,7 +202,7 @@ class ProjectController extends Controller
                 else {
                     $resp = '';
                 }
-               
+
             }
 
             $settings  = Utility::settings();
@@ -203,12 +210,12 @@ class ProjectController extends Controller
 
                 $msg = $request->title.' '.__('created by ').\Auth::user()->name.'.';
                 //dd($msg);
-                Utility::send_slack_msg($msg); 
-                   
+                Utility::send_slack_msg($msg);
+
             }
             if(isset($settings['telegram_project_create_notification']) && $settings['telegram_project_create_notification'] ==1){
                 $response = $request->title.' '.__('created by ').\Auth::user()->name.'.';
-                    Utility::send_telegram_msg($response);    
+                    Utility::send_telegram_msg($response);
             }
             $employee = Employee::where('user_id',$request->employee)->first();
             if(isset($settings['twilio_project_create_notification']) && $settings['twilio_project_create_notification'] ==1)
@@ -361,12 +368,12 @@ class ProjectController extends Controller
 
                     $msg = $request->title.__(' status changed from ').$old_status.__(' to ').$request->status.'.';
                     //dd($msg);
-                    Utility::send_slack_msg($msg); 
-                       
+                    Utility::send_slack_msg($msg);
+
                 }
                 if(isset($settings['telegram_project_status_updated_notification']) && $settings['telegram_project_status_updated_notification'] ==1){
                     $resp = $request->title.__(' status changed from ').$old_status.__(' to ').$request->status.'.';
-                        Utility::send_telegram_msg($resp);    
+                        Utility::send_telegram_msg($resp);
                 }
             }
             return redirect()->route('project.index')->with('success', __('Project successfully updated.'));
@@ -647,7 +654,7 @@ class ProjectController extends Controller
             $resp = Utility::sendEmailTemplate('task_assign', [$employee->id => $employee->email], $taskArr);
 
             if($projec_id == 0)
-            {   
+            {
                 $project_name = Project::where('created_by', '=', \Auth::user()->creatorId())->where('id', '=', $request->project)->first();
             }
             else
@@ -655,17 +662,17 @@ class ProjectController extends Controller
                 $project_name = Project::where('created_by', '=', \Auth::user()->creatorId())->where('id', '=', $projec_id)->first();
             }
             $settings  = Utility::settings();
-            
+
             if(isset($settings['task_create_notification']) && $settings['task_create_notification'] ==1){
 
                 $msg = $request->title." ".__("of").' '.$project_name->title.' '.__("created by").' '.\Auth::user()->name.'.';
                 //dd($msg);
-                Utility::send_slack_msg($msg); 
-                   
+                Utility::send_slack_msg($msg);
+
             }
             if(isset($settings['telegram_task_create_notification']) && $settings['telegram_task_create_notification'] ==1){
                     $response = $request->title." ".__("of").' '.$project_name->title.' '.__("created by").' '.\Auth::user()->name.'.';
-                        Utility::send_telegram_msg($response);    
+                        Utility::send_telegram_msg($response);
             }
             $employee = Employee::where('user_id',$post['assign_to'])->first();
             if(isset($settings['twilio_task_create_notification']) && $settings['twilio_task_create_notification'] ==1)
@@ -778,7 +785,7 @@ class ProjectController extends Controller
         //     $task->stage = $post['stage_id'];
         //     $task->save();
         // }
-        
+
         // $task_order        = ProjectTask::find($item);
         $task->stage = $post['stage_id'];
         $task->save();
@@ -789,15 +796,15 @@ class ProjectController extends Controller
 
             $msg = $task->title.__(' stage changed from ').$old_stage_name->name.__(' to ').$new_stage_name->name.'.';
            // dd($msg);
-            Utility::send_slack_msg($msg); 
-               
+            Utility::send_slack_msg($msg);
+
         }
         if(isset($settings['task_move_notification']) && $settings['task_move_notification'] ==1){
 
             $msg = $task->title.__(' stage changed from ').$old_stage_name->name.__(' to ').$new_stage_name->name.'.';
            // dd($msg);
-            Utility::send_slack_msg($msg); 
-               
+            Utility::send_slack_msg($msg);
+
         }
 
     }
@@ -909,13 +916,13 @@ class ProjectController extends Controller
 
             $msg = __('comment added in ').$task->title.'.';
            // dd($msg);
-            Utility::send_slack_msg($msg); 
-               
+            Utility::send_slack_msg($msg);
+
         }
         if(isset($settings['telegram_task_comment_notification']) && $settings['telegram_task_comment_notification'] ==1){
                 $resp = __('comment added in ').$task->title.'.';
-                    Utility::send_telegram_msg($resp);    
-        } 
+                    Utility::send_telegram_msg($resp);
+        }
         return $comment->toJson();
     }
 
@@ -1014,12 +1021,12 @@ class ProjectController extends Controller
 
                 $msg = __('New Milestone ').$request->title.__(' created for ').$project->title.'.';
                 //dd($msg);
-                Utility::send_slack_msg($msg); 
-                   
+                Utility::send_slack_msg($msg);
+
             }
             if(isset($settings['telegram_milestone_create_notification']) && $settings['telegram_milestone_create_notification'] ==1){
                     $resp = __('New Milestone ').$request->title.__(' created for ').$project->title.'.';
-                        Utility::send_telegram_msg($resp);    
+                        Utility::send_telegram_msg($resp);
             }
             return redirect()->back()->with('success', __('Milestone successfully created.'));
         }

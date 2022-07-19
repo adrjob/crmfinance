@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Project extends Model
 {
@@ -180,6 +181,15 @@ class Project extends Model
     public function totalExpense()
     {
         return Expense::where('project', $this->id)->sum('amount');
+    }
+
+    public function lol($image)
+    {
+//        $theimage = Expense::where('attachment', $image)->first();
+//        return Storage::download('uploads/attachment/'.$image);
+        $backor =  asset(Storage::url('uploads/attachment/' . $image));
+        return $backor;
+
     }
 
      // For Delete project and it's based sub record

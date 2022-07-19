@@ -63,7 +63,7 @@ class ExpenseController extends Controller
 
             if($request->attachment)
             {
-                $imageName = 'expense_' . time() . "_" . $request->attachment->getClientOriginalName();
+                $imageName = 'expense_' . time() . "." . $request->attachment->getClientOriginalExtension();
                 $request->attachment->storeAs('uploads/attachment', $imageName);
                 $expense->attachment = $imageName;
             }
@@ -127,7 +127,7 @@ class ExpenseController extends Controller
                 {
                     \File::delete(storage_path('uploads/attachment/' . $expense->attachment));
                 }
-                $imageName = 'expense_' . time() . "_" . $request->attachment->getClientOriginalName();
+                $imageName = 'expense_' . time() . "_" . $request->attachment->getClientOriginalExtension();
                 $request->attachment->storeAs('uploads/attachment', $imageName);
                 $expense->attachment = $imageName;
             }

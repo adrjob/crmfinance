@@ -25,12 +25,6 @@
         </div>
         <div class="navbar-content">
             <ul class="dash-navbar">
-                <li class="dash-item">
-                    <a class="dash-link"
-                       href="{{ route('expense.index') }}"><span class="dash-micon"><i
-                                class="ti ti-home"></i></span><span
-                            class="dash-mtext">{{ __('Expense') }}</span></a>
-                </li>
 
 {{--                @if (\Auth::user()->type == 'company')--}}
 {{--                    <li class="dash-item dash-hasmenu  {{ Request::segment(1) == 'expense' ? 'active' : '' }}">--}}
@@ -51,28 +45,24 @@
 
                 @if (\Auth::user()->type == 'company')
                     <li
-                        class="dash-item dash-hasmenu {{ Request::segment(1) == 'employee' || Request::segment(1) == 'client' ? 'active dash-trigger' : '' }}">
+                        class=" {{ Request::segment(1) == 'employee' || Request::segment(1) == 'client' ? 'active dash-trigger' : '' }}">
                         <a class="dash-link " data-toggle="collapse" role="button"
-                            aria-controls="navbar-getting-started"><span class="dash-micon"><i
+                           aria-controls="navbar-getting-started"><span class="dash-micon"><i
                                     class="ti ti-users"></i></span><span
-                                class="dash-mtext">{{ __('Staff') }}</span><span class="dash-arrow"><i
+                                class="dash-mtext">{{ __('Expenses') }}</span><span class="dash-arrow"><i
                                     data-feather="chevron-right"></i></span></a>
                         <ul class="dash-submenu">
-{{--                            <li--}}
-{{--                                class="dash-item dash-hasmenu {{ Request::segment(1) == 'employee' ? 'active ' : '' }}">--}}
-{{--                                <a class="dash-link"--}}
-{{--                                    href="{{ route('employee.index') }}">{{ __('Employee') }}</span></a>--}}
-
-{{--                            </li>--}}
-                            <li class="dash-item dash-hasmenu {{ Request::segment(1) == 'client' ? 'active' : '' }}">
-                                <a class="dash-link"
-                                    href="{{ route('client.index') }}">{{ __('User') }}</a>
-
-                            </li>
-
+                            @foreach($place as $pl)
+                                <li class="dash-item dash-hasmenu {{ Request::segment(1) == 'client' ? 'active' : '' }}">
+                                    <a class="dash-link"
+                                       href="{{ route('expenses.show', $pl->id) }}">{{ $pl->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </li>
                 @endif
+
+
 {{--                @elseif(\Auth::user()->type == 'employee')--}}
 {{--                    <li class="dash-item">--}}
 {{--                        <a href="{{ route('employee.show', \Crypt::encrypt(\Auth::user()->id)) }}"--}}
@@ -263,41 +253,41 @@
 {{--                    </li>--}}
 {{--                @endif--}}
 
-                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client' || \Auth::user()->type == 'employee')
-                    <li
-                        class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' || Request::segment(1) == 'allTask' || Request::segment(1) == 'allTimesheet'? 'active dash-trigger': '' }}">
-                        <a href="#!" class="dash-link"><span class="dash-micon"><i
-                                    class="ti ti-list-check"></i></span><span
-                                class="dash-mtext">{{ __('Project') }}</span><span class="dash-arrow"><i
-                                    data-feather="chevron-right"></i></span></a>
-                        <ul class="dash-submenu">
-                            <li
-                                class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' && Request::segment(2) != 'allTask' &&Request::segment(2) != 'allTaskKanban' &&Request::segment(2) != 'allTimesheet'? 'active  dash-trigger': '' }}">
-                                <a class="dash-link"
-                                    href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('project'))? route(\Auth::user()->getDefualtViewRouteByModule('project')): route('project.index') }}">{{ __('All Project') }}</a>
-                            </li>
-                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')
-                                <li
-                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTask' || Request::segment(2) == 'allTaskKanban' ? 'active' : '' }}">
-                                    <a class="dash-link"
-                                        href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('all task'))? route(\Auth::user()->getDefualtViewRouteByModule('all task')): route('project.all.task') }}">{{ __('Task') }}</a>
-                                </li>
-                                <li
-                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTimesheet' ? 'active' : '' }}">
-                                    <a class="dash-link"
-                                        href="{{ route('project.all.timesheet') }}">{{ __('Timesheets') }}</a>
-                                </li>
-                            @endif
-                            @if(Auth::user()->type == 'company')
-                            <li class="dash-item">
-                                <a class="dash-link"
-                                   href="{{ route('category.index') }}">{{ __('Category') }}</a>
-                            </li>
-                                @endif
-                        </ul>
-                    </li>
-                @endif
-                </li>
+{{--                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client' || \Auth::user()->type == 'employee')--}}
+{{--                    <li--}}
+{{--                        class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' || Request::segment(1) == 'allTask' || Request::segment(1) == 'allTimesheet'? 'active dash-trigger': '' }}">--}}
+{{--                        <a href="#!" class="dash-link"><span class="dash-micon"><i--}}
+{{--                                    class="ti ti-list-check"></i></span><span--}}
+{{--                                class="dash-mtext">{{ __('Project') }}</span><span class="dash-arrow"><i--}}
+{{--                                    data-feather="chevron-right"></i></span></a>--}}
+{{--                        <ul class="dash-submenu">--}}
+{{--                            <li--}}
+{{--                                class="dash-item dash-hasmenu {{ Request::segment(1) == 'project' && Request::segment(2) != 'allTask' &&Request::segment(2) != 'allTaskKanban' &&Request::segment(2) != 'allTimesheet'? 'active  dash-trigger': '' }}">--}}
+{{--                                <a class="dash-link"--}}
+{{--                                    href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('project'))? route(\Auth::user()->getDefualtViewRouteByModule('project')): route('project.index') }}">{{ __('All Project') }}</a>--}}
+{{--                            </li>--}}
+{{--                            @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')--}}
+{{--                                <li--}}
+{{--                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTask' || Request::segment(2) == 'allTaskKanban' ? 'active' : '' }}">--}}
+{{--                                    <a class="dash-link"--}}
+{{--                                        href="{{ !empty(\Auth::user()->getDefualtViewRouteByModule('all task'))? route(\Auth::user()->getDefualtViewRouteByModule('all task')): route('project.all.task') }}">{{ __('Task') }}</a>--}}
+{{--                                </li>--}}
+{{--                                <li--}}
+{{--                                    class="dash-item dash-hasmenu {{ Request::segment(2) == 'allTimesheet' ? 'active' : '' }}">--}}
+{{--                                    <a class="dash-link"--}}
+{{--                                        href="{{ route('project.all.timesheet') }}">{{ __('Timesheets') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
+{{--                            @if(Auth::user()->type == 'company')--}}
+{{--                            <li class="dash-item">--}}
+{{--                                <a class="dash-link"--}}
+{{--                                   href="{{ route('category.index') }}">{{ __('Category') }}</a>--}}
+{{--                            </li>--}}
+{{--                                @endif--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                @endif--}}
+{{--                </li>--}}
 
 {{--                @if (\Auth::user()->type == 'company')--}}
 {{--                    <li class="dash-item ">--}}
@@ -481,13 +471,13 @@
 {{--                                class="dash-mtext">{{ __('Language') }}</span></a>--}}
 {{--                    </li>--}}
 {{--                @endif -->--}}
-                @if (\Auth::user()->type == 'company')
-                    <li class="dash-item dash-hasmenu">
-                        <a href="#!" class="dash-link"><span class="dash-micon"><i
-                                    class="ti ti-chart-dots"></i></span><span
-                                class="dash-mtext">{{ __('Report') }}</span><span class="dash-arrow"><i
-                                    data-feather="chevron-right"></i></span></a>
-                        <ul class="dash-submenu">
+{{--                @if (\Auth::user()->type == 'company')--}}
+{{--                    <li class="dash-item dash-hasmenu">--}}
+{{--                        <a href="#!" class="dash-link"><span class="dash-micon"><i--}}
+{{--                                    class="ti ti-chart-dots"></i></span><span--}}
+{{--                                class="dash-mtext">{{ __('Report') }}</span><span class="dash-arrow"><i--}}
+{{--                                    data-feather="chevron-right"></i></span></a>--}}
+{{--                        <ul class="dash-submenu">--}}
 {{--                            <li class="dash-item">--}}
 {{--                                <a class="dash-link"--}}
 {{--                                    href="{{ route('report.attendance') }}">{{ __('Attendance') }}</a>--}}
@@ -496,9 +486,9 @@
 {{--                                <a class="dash-link"--}}
 {{--                                    href="{{ route('report.task') }}">{{ __('Task') }}</a>--}}
 {{--                            </li>--}}
-                            <li class="dash-item">
-                                <a class="dash-link" href="{{route('report.income.expense')}}">{{__('Expense')}}</a>
-                            </li>
+{{--                            <li class="dash-item">--}}
+{{--                                <a class="dash-link" href="{{route('report.income.expense')}}">{{__('Expense')}}</a>--}}
+{{--                            </li>--}}
 {{--                            <li class="dash-item">--}}
 {{--                                <a class="dash-link"--}}
 {{--                                    href="{{ route('report.timelog') }}">{{ __('Time Log') }}</a>--}}
@@ -532,9 +522,9 @@
 {{--                                    href="{{ route('report.product.stock.report') }}">{{ __('Item Stock') }}</a>--}}
 {{--                            </li>--}}
 
-                        </ul>
-                    </li>
-                @endif
+{{--                        </ul>--}}
+{{--                    </li>--}}
+{{--                @endif--}}
 
 {{--                @if (\Auth::user()->type == 'company')--}}
 {{--                    <li class="dash-item dash-hasmenu">--}}
@@ -647,21 +637,39 @@
 {{--                    </li>--}}
 {{--                @endif--}}
 
-                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')
-                    <li class="dash-item">
-                        <a href="{{ route('event.index') }}" class="dash-link"><span
-                                class="dash-micon"><i class="ti ti-calendar-event"></i></span><span
-                                class="dash-mtext">{{ __('Event') }}</span></a>
+{{--                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'employee')--}}
+{{--                    <li class="dash-item">--}}
+{{--                        <a href="{{ route('event.index') }}" class="dash-link"><span--}}
+{{--                                class="dash-micon"><i class="ti ti-calendar-event"></i></span><span--}}
+{{--                                class="dash-mtext">{{ __('Event') }}</span></a>--}}
+{{--                    </li>--}}
+{{--                @endif--}}
+
+{{--                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client' || \Auth::user()->type == 'employee')--}}
+{{--                    <li class="dash-item {{ request()->is('note*') ? 'active' : '' }}">--}}
+{{--                        <a href="{{ route('note.index') }}" class="dash-link"><span class="dash-micon"><i--}}
+{{--                                    class="ti ti-note"></i></span><span--}}
+{{--                                class="dash-mtext">{{ __('Note') }}</span></a>--}}
+{{--                    </li>--}}
+{{--                @endif--}}
+
+
+                @if (\Auth::user()->type == 'company')
+                    <li >
+                        <a class="dash-link"
+                           href="{{ route('place.index') }}"><span class="dash-micon"><i
+                                    class="ti ti-home"></i></span><span
+                                class="dash-mtext">{{ __('Place') }}</span></a>
+                    </li>
+
+                    <li >
+                        <a class="dash-link"
+                           href="{{ route('client.index') }}"><span class="dash-micon"><i
+                                    class="ti ti-user"></i></span><span
+                                class="dash-mtext">{{ __('User') }}</span></a>
                     </li>
                 @endif
 
-                @if (\Auth::user()->type == 'company' || \Auth::user()->type == 'client' || \Auth::user()->type == 'employee')
-                    <li class="dash-item {{ request()->is('note*') ? 'active' : '' }}">
-                        <a href="{{ route('note.index') }}" class="dash-link"><span class="dash-micon"><i
-                                    class="ti ti-note"></i></span><span
-                                class="dash-mtext">{{ __('Note') }}</span></a>
-                    </li>
-                @endif
 
 
                 @if (\Auth::user()->type == 'super admin' || \Auth::user()->type == 'company')

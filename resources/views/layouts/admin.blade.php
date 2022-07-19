@@ -7,6 +7,7 @@
     $color = (!empty($setting['color'])) ? $setting['color'] : 'theme-3';
     $SITE_RTL = !empty($setting['SITE_RTL'] ) ? $setting['SITE_RTL']  : 'off';
 
+    $place = \App\Models\ExpensesPlace::all();
 @endphp
 <!DOCTYPE html>
 <html lang="en" dir="{{ $SITE_RTL == 'on'?'rtl':''}}">
@@ -15,7 +16,7 @@
 @include('partials.admin.head')
 <body class="{{ $color }}">
 
-    @include('partials.admin.menu')
+    @include('partials.admin.menu', $place)
     <div class="main-content position-relative">
         @include('partials.admin.header')
         <div class="page-content">
