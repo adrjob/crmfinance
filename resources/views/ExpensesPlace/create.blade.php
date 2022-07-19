@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('page-title')
-    {{__('Project Create')}}
+    {{__('Place Create')}}
 @endsection
 @push('css-page')
 @endpush
@@ -27,10 +27,10 @@
                     <label for="">Place</label>
                     <input type="text" name="name" class="form-control" required>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="">Place</label>
-                    <input type="date" name="init_date" class="form-control" required value="00/00/00">
-                </div>
+{{--                <div class="form-group col-md-4">--}}
+{{--                    <label for="">Place</label>--}}
+{{--                    <input type="date" name="init_date" class="form-control" required value="00/00/00">--}}
+{{--                </div>--}}
 {{--                <div class="form-group col-md-4">--}}
 {{--                    {{ Form::label('price', __('Price'),['class'=>'form-label']) }}--}}
 {{--                    {{ Form::number('price', null, array('class' => 'form-control','required'=>'required','stage'=>'0.01')) }}--}}
