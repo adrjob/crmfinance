@@ -36,7 +36,7 @@
 {{--                    {{ Form::number('price', null, array('class' => 'form-control','required'=>'required','stage'=>'0.01')) }}--}}
 {{--                </div>--}}
             </div>
-            <button type="submit">save</button>
+            <button type="submit" class="btn btn-primary">save</button>
         </div>
     </div>
     </form>
