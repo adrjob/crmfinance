@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ExpensesPlace;
 use App\Models\NewExpenses;
+use App\Models\NewExpensesInfo;
 use Illuminate\Http\Request;
 
 class NewExpensesController extends Controller
@@ -58,7 +59,7 @@ class NewExpensesController extends Controller
     {
         $place = ExpensesPlace::where('id', $id)->first();
         $newexpenses = NewExpenses::where('place_code', $place->code)->get();
-        $newexpensesInfo = NewExpenses::where('place_code', $place->code)->get();
+        $newexpensesInfo = NewExpensesInfo::where('place_code', $place->code)->get();
         return view('newexpenses.show', compact('newexpenses', 'place'));
     }
 
