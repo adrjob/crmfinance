@@ -58,7 +58,7 @@ class NewExpensesController extends Controller
     {
         $place = ExpensesPlace::where('id', $id)->first();
         $newexpenses = NewExpenses::where('place_code', $place->code)->get();
-        $newexpensesInfo = NewExpensesI::where('place_code', $place->code)->get();
+        $newexpensesInfo = NewExpenses::where('place_code', $place->code)->get();
         return view('newexpenses.show', compact('newexpenses', 'place'));
     }
 
