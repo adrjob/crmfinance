@@ -14,11 +14,8 @@
 @endsection
 
 @section('action-btn')
-    <a href="{{ route('project.grid') }}" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Grid View') }}">
-        <i class="ti ti-layout-grid text-white"></i>
-    </a>
     @if(\Auth::user()->type=='company')
-        <a href="{{ route('place.create') }}" class="btn btn-sm btn-primary btn-icon m-1"
+        <a href="{{ route('place.create') }}" class="btn btn-sm btn-primary btn-icon m-1" style="background-color: green"
            data-bs-whatever="{{__('Create New Place')}}" data-bs-toggle="tooltip"
            data-bs-original-title="{{__('Create')}}"> <i class="ti ti-plus text-white"></i></a>
     @endif
@@ -49,21 +46,37 @@
                                 </td>
 
                                 <td class="text-right">
-                                    <div class="action-btn bg-info ms-3">
-                                        <a href="{{ route('place.edit',  $expp->id ) }}" class="mx-3 btn btn-sm d-inline-flex align-items-center"
-                                           data-bs-whatever="{{__('Edit Place')}}" data-bs-toggle="tooltip"
-                                           data-bs-original-title="{{__('Edit')}}"> <span class="text-white"> <i
-                                                    class="ti ti-edit"></i></span></a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a style="background-color: green" href="{{ route('place.edit',  $expp->id ) }}" class="mx-2 btn btn-sm d-inline-flex align-items-center"
+                                                          data-bs-whatever="{{__('Edit Place')}}" data-bs-toggle="tooltip"
+                                                          data-bs-original-title="{{__('Edit')}}"> <span class="text-white"> <i
+                                                            class="ti ti-edit"></i></span></a>
+                                            <form action="{{ route('place.destroy', $expp) }}" method="post" style="display: inline-block">
+                                                @csrf
+                                                @method('delete')
+                                                <a style="background-color: red" href="#!" class="mx-2 btn btn-sm  align-items-center show_confirm">
+                                                    <i class="ti ti-trash text-white" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Delete') }}"></i>
+                                                </a>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="action-btn bg-danger ms-3">
-                                        <form action="{{ route('place.destroy', $expp) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <a href="#!" class="mx-3 btn btn-sm d-flex align-items-center show_confirm">
-                                            <i class="ti ti-trash text-white" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Delete') }}"></i>
-                                        </a>
-                                        </form>
-                                    </div>
+{{--                                    <div class="action-btn bg-info ms-3">--}}
+{{--                                    </div>--}}
+{{--                                    <div class="action-btn ms-3" style="background-color: red !important;">--}}
+{{--                                        <form action="{{ route('place.destroy', $expp) }}" method="post" style="display: inline-block">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('delete')--}}
+{{--                                            <a style="background-color: black" href="{{ route('place.edit',  $expp->id ) }}" class="mx-3 btn btn-sm d-inline-flex align-items-center"--}}
+{{--                                               data-bs-whatever="{{__('Edit Place')}}" data-bs-toggle="tooltip"--}}
+{{--                                               data-bs-original-title="{{__('Edit')}}"> <span class="text-white"> <i--}}
+{{--                                                        class="ti ti-edit"></i></span></a>--}}
+{{--                                        <a href="#!" style="background-color: black" class="mx-3 btn btn-sm d-flex align-items-center show_confirm">--}}
+{{--                                            <i class="ti ti-trash text-white" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Delete') }}"></i>--}}
+{{--                                        </a>--}}
+
+{{--                                        </form>--}}
+{{--                                    </div>--}}
                                 </td>
                             </tr>
                             @endforeach

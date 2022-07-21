@@ -20,13 +20,6 @@
 @section('action-btn')
 
 
-        <a href="#" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="modal"
-        data-bs-target="#exampleModal" data-url="{{ route('client.file.import') }}"
-        data-bs-whatever="{{__('Import CSV file')}}" data-bs-toggle="tooltip"
-        data-bs-original-title="{{__('Import item CSV file')}}"> <span class="text-white">
-            <i class="ti ti-file-import"  data-bs-toggle="tooltip"
-            data-bs-original-title="{{__('Import')}}"></i> </a>
-
             <a href="#" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="modal"
             data-bs-target="#exampleModal" data-url="{{ route('client.create') }}"
             data-bs-whatever="{{__('Create New Client')}}"> <i class="ti ti-plus text-white" data-bs-toggle="tooltip"
@@ -70,7 +63,7 @@
                                                         <i class="ti ti-trash"></i>{{ __('Delete') }}
                                                     </a>
                                                     {!! Form::close() !!}
-                                                    
+
                                             </div>
                                         </div>
                                         @else
@@ -99,7 +92,7 @@
                         <div class="row justify-content-between align-items-center mt-3">
                             <div class="col text-center">
                             <span class="d-block h6 mb-2" data-bs-toggle="tooltip" data-bs-original-title="{{__('Last Login')}}">{{$client->lastlogin}}</span>
-                              
+
                             </div>
                         </div>
                     @else
@@ -146,7 +139,7 @@
             </div>
         @endforeach
 
-        <div class="col-xl-3 col-lg-4 col-sm-6"> 
+        <div class="col-xl-3 col-lg-4 col-sm-6">
             <a href="#" class="btn-addnew-project "  data-bs-toggle="modal"
             data-bs-target="#exampleModal" data-url="{{ route('client.create') }}" data-size="lg" data-bs-whatever="{{__('Create New Client')}}">
                 <div class="bg-primary proj-add-icon">

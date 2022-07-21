@@ -23,19 +23,19 @@
     <link rel="icon" href="{{$logo.'/'.(isset($company_favicon) && !empty($company_favicon)?$company_favicon:'favicon.png')}}" type="image" sizes="16x16">
 
     {{-- <link rel="icon" href="{{ asset('assets/images/favicon.svg') }}" type="image/x-icon" /> --}}
-    <!--Calendar --> 
+    <!--Calendar -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/main.css')}}">
     <!-- font css -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/tabler-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/material.css') }}">
-   
+
     @stack('pre-purpose-css-page')
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/style.css') }}">
     <!-- vendor css -->
-   
+
 
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link"> --}}
     <link rel="stylesheet" href="{{ asset('assets/css/customizer.css') }}">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{{ asset('public/custom_assets/css/custom.css') }}">
 
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/plugins/main.css')}}"> --}}
-    <!-- date --> 
+    <!-- date -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/datepicker-bs5.min.css') }}">
 
     <!-- Dragulla -->
@@ -56,22 +56,22 @@
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/dropzone.min.css') }}">
 
     <meta name="url" content="{{ url('').'/'.config('chatify.routes.prefix') }}" data-user="{{ Auth::user()->id }}">
-   
+
     <link rel='stylesheet' href='https://unpkg.com/nprogress@0.2.0/nprogress.css'/>
 
 @stack('css-page')
 
     @if ($SITE_RTL == 'on')
         <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}" id="main-style-link">
-    @endif    
+    @endif
     @if( isset($setting['cust_darklayout']) && $setting['cust_darklayout'] == 'on')
         <link rel="stylesheet" href="{{ asset('assets/css/style-dark.css') }}">
     @else
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link">
     @endif
-    
 
-   
+
+
     <link rel="stylesheet" href="{{ asset('assets/css/customizer.css') }}">
     <link rel="stylesheet" href="{{ asset('public/custom_assets/css/custom.css') }}">
     <style>
@@ -93,6 +93,20 @@
         }
         [dir="rtl"] .me-auto {
             margin-left: 10px !important;
+        }
+
+        body.theme-4 .list-group-item.active {
+            background: linear-gradient(141.55deg, rgba(104, 94, 229, 0) 3.46%, green 99.86%), green !important;
+        }
+
+        .btn-primary {
+            background-color: green !important;
+            border-color: green !important;
+        }
+
+        .breadcrumb
+        {
+            display: none !important;
         }
     </style>
 </head>

@@ -17,7 +17,7 @@
     @if(\Auth::user()->type=='company')
         <a href="#" data-size="lg" data-url="{{ route('expenses.create') }}"data-bs-toggle="modal" data-bs-target="#exampleModal1"
            data-bs-whatever="{{__('Create New Expense')}}"
-           class="btn btn-sm btn-primary btn-icon m-1">
+           class="btn btn-sm btn-primary btn-icon m-1" style="background-color: green">
             <i class="ti ti-plus" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Create') }}"></i>
         </a>
     @endif
@@ -115,7 +115,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <div class="action-btn bg-danger ms-3">
+                                                <div class="action-btn ms-3" style="background-color: red !important;">
                                                     <form action="{{ route('expensesInfo.destroy', $nexxpInfo->id) }}" method="post">
                                                         @csrf
                                                         @method('delete')
