@@ -14,12 +14,13 @@
 @section('content')
 
 <!-- [ auth-signup ] start -->
-		<div class="card">
+
+		<div class="card" style="margin-left: 30% !important;">
 			<div class="row align-items-center text-start">
-				<div class="col-xl-6">
+				<div class="col-xl-12">
 					<div class="card-body">
 						<div class="">
-							<h2 class="mb-3 f-w-600">{{ __('Login') }}</h2>
+							<h2 class="mb-3 f-w-600 text-center">{{ __('Login') }}</h2>
 						</div>
 						{{Form::open(array('route'=>'login','method'=>'post','id'=>'loginForm','class'=> 'login-form'
 						))}}
@@ -78,18 +79,11 @@
 
 					</div>
 				</div>
-				<div class="col-xl-6 img-card-side">
-{{--					<div class="auth-img-content">--}}
-{{--						<img src="{{ asset('assets/images/auth/img-auth-3.svg') }}" alt="" class="img-fluid">--}}
-{{--						<h3 class="text-white mb-4 mt-5"> {{ __('“Attention is the new currency”') }}</h3>--}}
-{{--						<p class="text-white"> {{__('The more effortless the writing looks, the more effort the writer--}}
-{{--							actually put into the process.')}}</p>--}}
-{{--					</div>--}}
-				</div>
+
 			</div>
 		</div>
-		<div class="auth-footer">
-			<div class="container-fluid">
+		<div class="auth-footer" style="margin-left: 31%">
+			<div class="container-fluid text-center">
 				<div class="row">
 					<div class="col-6">
 						<p class="text-dark">{{ $footer_text }}</p>

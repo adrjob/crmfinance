@@ -64,47 +64,25 @@
 <body class=" {{ $color }} ">
 
     <div class="auth-wrapper auth-v3">
-        <div class="bg-auth-side bg-primary"></div>
+{{--        <div class="bg-auth-side bg-primary"></div>--}}
         <div class="auth-content">
-            <nav class="navbar navbar-expand-md navbar-light default">
-                <div class="container-fluid pe-2">
-                    <a class="navbar-brand" href="#">
-                        Finance
+{{--            <nav class="navbar navbar-expand-md navbar-light default">--}}
+{{--                <div class="container-fluid ">--}}
+{{--                    <a class="navbar-brand " style="text-align: center !important;" href="#">--}}
+{{--                        Finance--}}
 {{--                        <img src="{{ asset(Storage::url('uploads/logo/' . $logo)) }}" class="auth-logo">--}}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <ul class="navbar-nav align-items-center ms-auto mb-2 mb-lg-0">
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link active"--}}
-{{--                                    href="{{ !empty(Utility::getValByName('footer_value_1')) ? Utility::getValByName('footer_value_1') : Utility::getValByName('footer_value_1') }}">{{ !empty(Utility::getValByName('footer_link_1')) ? Utility::getValByName('footer_link_1') : Utility::getValByName('footer_link_1') }}</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link"--}}
-{{--                                    href="{{ !empty(Utility::getValByName('footer_value_2')) ? Utility::getValByName('footer_value_2') : Utility::getValByName('footer_value_2') }}">{{ !empty(Utility::getValByName('footer_link_2')) ? Utility::getValByName('footer_link_2') : Utility::getValByName('footer_link_2') }}</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a class="nav-link"--}}
-{{--                                    href="{{ !empty(Utility::getValByName('footer_value_3')) ? Utility::getValByName('footer_value_3') : Utility::getValByName('footer_value_3') }}">{{ !empty(Utility::getValByName('footer_link_3')) ? Utility::getValByName('footer_link_3') : Utility::getValByName('footer_link_3') }}</a>--}}
-{{--                            </li>--}}
-                            <li class="nav-item ">
-                                <select name="language" id="language" class=" btn btn-primary my-1 me-2 lang-dropdown option"
-                                    onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                                    @foreach (Utility::languages() as $language)
-                                        <option @if ($lang == $language) selected @endif
-                                            value="{{ route('login', $language) }}">{{ Str::upper($language) }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+{{--                    </a>--}}
+{{--                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"--}}
+{{--                        data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"--}}
+{{--                        aria-label="Toggle navigation">--}}
+{{--                        <span class="navbar-toggler-icon"></span>--}}
+{{--                    </button>--}}
+{{--                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </nav>--}}
+            <br><br>
             @yield('content')
         </div>
     </div>

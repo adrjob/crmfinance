@@ -168,8 +168,8 @@ $(document).on('click', '.fc-daygrid-event', function(e) {
 
   </script>
 
-    <footer class="dash-footer">
-        <div class="footer-wrapper">
+    <footer class="dash-footer" >
+        <div class="footer-wrapper" style="margin-left: 34% !important;">
             <div class="py-1">
                 <span class="text-muted"> {{ $footer_text }}</span>
             </div>
