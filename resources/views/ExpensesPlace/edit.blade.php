@@ -18,9 +18,6 @@
     <li class="breadcrumb-item active" aria-current="page">{{__('All Expenses')}}</li>
 @endsection
 @section('action-btn')
-    <a href="{{ route('project.grid') }}" class="btn btn-sm btn-primary btn-icon m-1" data-bs-toggle="tooltip" data-bs-original-title="{{ __('Grid View') }}">
-        <i class="ti ti-layout-grid text-white"></i>
-    </a>
     @if(\Auth::user()->type=='company')
         <a href="#" data-size="lg" data-url="{{ route('expenses.create') }}"data-bs-toggle="modal" data-bs-target="#exampleModal1"
            data-bs-whatever="{{__('Create New Expense')}}"
